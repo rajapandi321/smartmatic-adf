@@ -36,9 +36,9 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "PROMOTION_ID",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"name": "promotion_id",
+									"type": "Int32",
+									"physicalType": "integer"
 								}
 							},
 							{
@@ -47,9 +47,9 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "DATE_ID",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"name": "date_id",
+									"type": "Int32",
+									"physicalType": "integer"
 								}
 							},
 							{
@@ -58,9 +58,9 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "STORE_ID",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"name": "store_id",
+									"type": "Int32",
+									"physicalType": "integer"
 								}
 							},
 							{
@@ -69,7 +69,7 @@
 									"type": "Decimal"
 								},
 								"sink": {
-									"name": "TOTAL_SALES_AMOUNT",
+									"name": "total_sales_amount",
 									"type": "Decimal",
 									"physicalType": "numeric"
 								}
@@ -80,7 +80,7 @@
 									"type": "Decimal"
 								},
 								"sink": {
-									"name": "TOTAL_DISCOUNT_AMOUNT",
+									"name": "total_discount_amount",
 									"type": "Decimal",
 									"physicalType": "numeric"
 								}
@@ -91,9 +91,9 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "TOTAL_UNITS_SOLD",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"name": "total_units_sold",
+									"type": "Int32",
+									"physicalType": "integer"
 								}
 							},
 							{
@@ -102,7 +102,7 @@
 									"type": "DateTime"
 								},
 								"sink": {
-									"name": "CREATED_AT",
+									"name": "created_at",
 									"type": "DateTime",
 									"physicalType": "timestamp without time zone"
 								}
