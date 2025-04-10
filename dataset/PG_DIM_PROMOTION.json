@@ -68,7 +68,7 @@
 		],
 		"typeProperties": {
 			"schema": "public",
-			"table": "DIM_PROMOTION"
+			"table": "dim_promotion"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
