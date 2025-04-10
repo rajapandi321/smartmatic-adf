@@ -1,0 +1,172 @@
+{
+	"name": "dim_product",
+	"properties": {
+		"activities": [
+			{
+				"name": "dim_product",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzurePostgreSQLSink",
+						"writeBatchSize": 1000000,
+						"writeBatchTimeout": "00:30:00",
+						"writeMethod": "CopyCommand"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "PRODUCT_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "product_id",
+									"type": "Int32",
+									"physicalType": "integer"
+								}
+							},
+							{
+								"source": {
+									"name": "PRODUCT_NAME",
+									"type": "String"
+								},
+								"sink": {
+									"name": "product_name",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "PRODUCT_DESCRIPTION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "product_description",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "CATEGORY_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "category_id",
+									"type": "Int32",
+									"physicalType": "integer"
+								}
+							},
+							{
+								"source": {
+									"name": "BRAND_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "brand_id",
+									"type": "Int32",
+									"physicalType": "integer"
+								}
+							},
+							{
+								"source": {
+									"name": "UNIT_PRICE",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "unit_price",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "COST_PRICE",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "cost_price",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "SKU",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sku",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "CREATED_AT",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "created_at",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								}
+							},
+							{
+								"source": {
+									"name": "UPDATED_AT",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "updated_at",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_DIM_PRODUCT",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "PG_DIM_PRODUCT",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "Data Migration"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-04-09T12:25:20Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

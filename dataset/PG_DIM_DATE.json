@@ -1,0 +1,81 @@
+{
+	"name": "PG_DIM_DATE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Postgres_Server",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Destination"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [
+			{
+				"name": "date_id",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "date",
+				"type": "date",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "day",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "month",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "year",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "quarter",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "week",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "day_of_week",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "is_weekend",
+				"type": "boolean",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "is_holiday",
+				"type": "boolean",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "public",
+			"table": "dim_date"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

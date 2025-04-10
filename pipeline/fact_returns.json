@@ -1,0 +1,172 @@
+{
+	"name": "fact_returns",
+	"properties": {
+		"activities": [
+			{
+				"name": "fact_returns",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzurePostgreSQLSink",
+						"writeBatchSize": 1000000,
+						"writeBatchTimeout": "00:30:00",
+						"writeMethod": "CopyCommand"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "RETURN_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RETURN_ID",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "SALES_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SALES_ID",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMER_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMER_ID",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "PRODUCT_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PRODUCT_ID",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "STORE_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STORE_ID",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "DATE_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DATE_ID",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "RETURN_QUANTITY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RETURN_QUANTITY",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "RETURN_REASON",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RETURN_REASON",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "REFUND_AMOUNT",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "REFUND_AMOUNT",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "CREATED_AT",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "CREATED_AT",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_FACT_RETURNS",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "PG_FACT_RETURNS",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "Data Migration"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-04-09T06:38:31Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

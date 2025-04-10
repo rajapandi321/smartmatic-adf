@@ -1,0 +1,139 @@
+{
+	"name": "fact_promotion_effectiveness",
+	"properties": {
+		"activities": [
+			{
+				"name": "fact_promotion_effectiveness",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzurePostgreSQLSink",
+						"writeBatchSize": 1000000,
+						"writeBatchTimeout": "00:30:00",
+						"writeMethod": "CopyCommand"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "PROMOTION_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PROMOTION_ID",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "DATE_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DATE_ID",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "STORE_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STORE_ID",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "TOTAL_SALES_AMOUNT",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "TOTAL_SALES_AMOUNT",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "TOTAL_DISCOUNT_AMOUNT",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "TOTAL_DISCOUNT_AMOUNT",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "TOTAL_UNITS_SOLD",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TOTAL_UNITS_SOLD",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "CREATED_AT",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "CREATED_AT",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_FACT_PROMOTION_EFFECTIVENESS",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "PG_FACT_PROMOTION_EFFECTIVENESS",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "Data Migration"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-04-09T06:38:31Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

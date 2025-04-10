@@ -1,0 +1,87 @@
+{
+	"name": "PG_FACT_INVENTORY",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Postgres_Server",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Destination"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [
+			{
+				"name": "inventory_id",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "product_id",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "store_id",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "date_id",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "stock_on_hand",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "stock_sold",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "stock_received",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "minimum_stock_level",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "maximum_stock_level",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "created_at",
+				"type": "timestamp without time zone",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "updated_at",
+				"type": "timestamp without time zone",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "public",
+			"table": "FACT_INVENTORY"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

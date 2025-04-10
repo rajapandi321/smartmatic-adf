@@ -1,0 +1,12 @@
+{
+	"name": "LS_ActivityLog",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://azuredp.dfs.core.windows.net/",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDNDNTMzNUYwLTYyRTAtNDg1My1CQUVBLTk1NTUzNDFBODdCNl80NjQ2Njg1MC0xZjAwLTQ0ZjUtYmRjOC00N2ZlNzQ0NDZlMTUiDQp9"
+		}
+	}
+}

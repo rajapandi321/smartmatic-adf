@@ -1,0 +1,64 @@
+{
+	"name": "dim_category_cdc",
+	"properties": {
+		"folder": {
+			"name": "CDC_FLOWS"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_INCREMENTAL_RESULTS",
+						"type": "DatasetReference"
+					},
+					"name": "extracttableinfo"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "PG_DIM_CATEGORY",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "alterRow1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          BRAND_ID as string,",
+				"          BRAND_NAME as string,",
+				"          BRAND_DESCRIPTION as string,",
+				"          CREATED_AT as string,",
+				"          UPDATED_AT as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> extracttableinfo",
+				"extracttableinfo alterRow(upsertIf(true())) ~> alterRow1",
+				"alterRow1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          category_id as decimal(38,0),",
+				"          category_name as string,",
+				"          parent_category_id as decimal(38,0),",
+				"          created_at as timestamp,",
+				"          updated_at as timestamp",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:false,",
+				"     upsertable:true,",
+				"     keys:['BRAND_ID'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}

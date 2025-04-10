@@ -1,0 +1,161 @@
+{
+	"name": "dim_promotion",
+	"properties": {
+		"activities": [
+			{
+				"name": "dim_promotion",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzurePostgreSQLSink",
+						"writeBatchSize": 1000000,
+						"writeBatchTimeout": "00:30:00",
+						"writeMethod": "CopyCommand"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "PROMOTION_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "promotion_id",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "PROMOTION_NAME",
+									"type": "String"
+								},
+								"sink": {
+									"name": "promotion_name",
+									"type": "String",
+									"physicalType": "text"
+								}
+							},
+							{
+								"source": {
+									"name": "PROMOTION_DESCRIPTION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "promotion_description",
+									"type": "String",
+									"physicalType": "text"
+								}
+							},
+							{
+								"source": {
+									"name": "DISCOUNT_TYPE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "discount_type",
+									"type": "String",
+									"physicalType": "text"
+								}
+							},
+							{
+								"source": {
+									"name": "DISCOUNT_VALUE",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "discount_value",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "START_DATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "start_date",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "END_DATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "end_date",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "CREATED_AT",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "created_at",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								}
+							},
+							{
+								"source": {
+									"name": "UPDATED_AT",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "updated_at",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_DIM_PROMOTION",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "PG_DIM_PROMOTION",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "Data Migration"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-04-08T02:38:56Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,205 @@
+{
+	"name": "dim_customer",
+	"properties": {
+		"activities": [
+			{
+				"name": "dim_customer",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzurePostgreSQLSink",
+						"writeBatchSize": 1000000,
+						"writeBatchTimeout": "00:30:00",
+						"writeMethod": "CopyCommand"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "CUSTOMER_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "customer_id",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "FIRST_NAME",
+									"type": "String"
+								},
+								"sink": {
+									"name": "first_name",
+									"type": "String",
+									"physicalType": "text"
+								}
+							},
+							{
+								"source": {
+									"name": "LAST_NAME",
+									"type": "String"
+								},
+								"sink": {
+									"name": "last_name",
+									"type": "String",
+									"physicalType": "text"
+								}
+							},
+							{
+								"source": {
+									"name": "EMAIL",
+									"type": "String"
+								},
+								"sink": {
+									"name": "email",
+									"type": "String",
+									"physicalType": "text"
+								}
+							},
+							{
+								"source": {
+									"name": "PHONE_NUMBER",
+									"type": "String"
+								},
+								"sink": {
+									"name": "phone_number",
+									"type": "String",
+									"physicalType": "text"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDRESS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "address",
+									"type": "String",
+									"physicalType": "text"
+								}
+							},
+							{
+								"source": {
+									"name": "CITY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "city",
+									"type": "String",
+									"physicalType": "text"
+								}
+							},
+							{
+								"source": {
+									"name": "STATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "state",
+									"type": "String",
+									"physicalType": "text"
+								}
+							},
+							{
+								"source": {
+									"name": "COUNTRY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "country",
+									"type": "String",
+									"physicalType": "text"
+								}
+							},
+							{
+								"source": {
+									"name": "POSTAL_CODE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "postal_code",
+									"type": "String",
+									"physicalType": "text"
+								}
+							},
+							{
+								"source": {
+									"name": "CUSTOMER_SEGMENT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "customer_segment",
+									"type": "String",
+									"physicalType": "text"
+								}
+							},
+							{
+								"source": {
+									"name": "CREATED_AT",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "created_at",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								}
+							},
+							{
+								"source": {
+									"name": "UPDATED_AT",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "updated_at",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_DIM_CUSTOMER",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "PG_DIM_CUSTOMER",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "Data Migration"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-04-10T07:23:30Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,51 @@
+{
+	"name": "PG_DIM_CATEGORY",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Postgres_Server",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Destination"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [
+			{
+				"name": "category_id",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "category_name",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "parent_category_id",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "created_at",
+				"type": "timestamp without time zone",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "updated_at",
+				"type": "timestamp without time zone",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "public",
+			"table": "dim_category"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

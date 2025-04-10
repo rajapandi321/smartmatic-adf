@@ -1,0 +1,75 @@
+{
+	"name": "PG_DIM_PROMOTION",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Postgres_Server",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Destination"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [
+			{
+				"name": "promotion_id",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "promotion_name",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "promotion_description",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "discount_type",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "discount_value",
+				"type": "numeric",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "start_date",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "end_date",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "created_at",
+				"type": "timestamp without time zone",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "updated_at",
+				"type": "timestamp without time zone",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "public",
+			"table": "DIM_PROMOTION"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

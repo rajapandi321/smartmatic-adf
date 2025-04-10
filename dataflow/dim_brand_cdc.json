@@ -1,0 +1,71 @@
+{
+	"name": "dim_brand_cdc",
+	"properties": {
+		"folder": {
+			"name": "CDC_FLOWS"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_INCREMENTAL_RESULTS",
+						"type": "DatasetReference"
+					},
+					"name": "extracttableinfo"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "PG_DIM_BRAND",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "alterRow1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          BRAND_ID as string,",
+				"          BRAND_NAME as string,",
+				"          BRAND_DESCRIPTION as string,",
+				"          CREATED_AT as string,",
+				"          UPDATED_AT as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> extracttableinfo",
+				"extracttableinfo alterRow(upsertIf(true())) ~> alterRow1",
+				"alterRow1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          brand_id as integer,",
+				"          brand_name as string,",
+				"          brand_description as string,",
+				"          created_at as timestamp,",
+				"          updated_at as timestamp",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:false,",
+				"     upsertable:true,",
+				"     keys:['brand_id'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          brand_id = BRAND_ID,",
+				"          brand_name = BRAND_NAME,",
+				"          brand_description = BRAND_DESCRIPTION,",
+				"          created_at = CREATED_AT,",
+				"          updated_at = UPDATED_AT",
+				"     )) ~> sink1"
+			]
+		}
+	}
+}

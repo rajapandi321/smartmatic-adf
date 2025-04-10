@@ -1,0 +1,260 @@
+{
+	"name": "dim_store",
+	"properties": {
+		"activities": [
+			{
+				"name": "dim_store",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzurePostgreSQLSink",
+						"writeBatchSize": 1000000,
+						"writeBatchTimeout": "00:30:00",
+						"writeMethod": "CopyCommand"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "STORE_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STORE_ID",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "STORE_NAME",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STORE_NAME",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "STORE_ADDRESS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STORE_ADDRESS",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "CITY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CITY",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "STATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STATE",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "COUNTRY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "COUNTRY",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "POSTAL_CODE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "POSTAL_CODE",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "STORE_MANAGER",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STORE_MANAGER",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "CREATED_AT",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "CREATED_AT",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								}
+							},
+							{
+								"source": {
+									"name": "UPDATED_AT",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "UPDATED_AT",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								}
+							},
+							{
+								"source": {
+									"name": "INVENTORY_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INVENTORY_ID",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "PRODUCT_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PRODUCT_ID",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "DATE_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DATE_ID",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "STOCK_ON_HAND",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STOCK_ON_HAND",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "STOCK_SOLD",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STOCK_SOLD",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "STOCK_RECEIVED",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STOCK_RECEIVED",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "MINIMUM_STOCK_LEVEL",
+									"type": "String"
+								},
+								"sink": {
+									"name": "MINIMUM_STOCK_LEVEL",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "MAXIMUM_STOCK_LEVEL",
+									"type": "String"
+								},
+								"sink": {
+									"name": "MAXIMUM_STOCK_LEVEL",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_DIM_STORE",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "PG_DIM_STORE",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "Data Migration"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-04-09T06:38:31Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

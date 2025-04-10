@@ -1,0 +1,81 @@
+{
+	"name": "PG_DIM_STORE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Postgres_Server",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Destination"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [
+			{
+				"name": "store_id",
+				"type": "numeric",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "store_name",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "store_address",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "city",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "state",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "country",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "postal_code",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "store_manager",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "created_at",
+				"type": "timestamp without time zone",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "updated_at",
+				"type": "timestamp without time zone",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "public",
+			"table": "DIM_STORE"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

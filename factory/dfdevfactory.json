@@ -1,0 +1,9 @@
+{
+	"name": "dfdevfactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2c2a073b-fd03-4109-b01b-acf16f835fe5",
+		"tenantId": "094d25ba-3306-4bc2-b789-6eb55f87b309"
+	}
+}

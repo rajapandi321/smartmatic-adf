@@ -1,0 +1,183 @@
+{
+	"name": "fact_inventory",
+	"properties": {
+		"activities": [
+			{
+				"name": "fact_inventory",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzurePostgreSQLSink",
+						"writeBatchSize": 1000000,
+						"writeBatchTimeout": "00:30:00",
+						"writeMethod": "CopyCommand"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "INVENTORY_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "inventory_id",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "PRODUCT_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "product_id",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "STORE_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "store_id",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "DATE_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "date_id",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "STOCK_ON_HAND",
+									"type": "String"
+								},
+								"sink": {
+									"name": "stock_on_hand",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "STOCK_SOLD",
+									"type": "String"
+								},
+								"sink": {
+									"name": "stock_sold",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "STOCK_RECEIVED",
+									"type": "String"
+								},
+								"sink": {
+									"name": "stock_received",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "MINIMUM_STOCK_LEVEL",
+									"type": "String"
+								},
+								"sink": {
+									"name": "minimum_stock_level",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "MAXIMUM_STOCK_LEVEL",
+									"type": "String"
+								},
+								"sink": {
+									"name": "maximum_stock_level",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "CREATED_AT",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "created_at",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								}
+							},
+							{
+								"source": {
+									"name": "UPDATED_AT",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "updated_at",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_FACT_INVENTORY",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "PG_FACT_INVENTORY",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "Data Migration"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-04-08T02:38:56Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

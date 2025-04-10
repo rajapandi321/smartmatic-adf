@@ -1,0 +1,20 @@
+{
+	"name": "DS_FACT_SALES",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Oracle_Source",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Source"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "RAJA",
+			"table": "FACT_SALES"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

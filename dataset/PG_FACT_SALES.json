@@ -1,0 +1,99 @@
+{
+	"name": "PG_FACT_SALES",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Postgres_Server",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Destination"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [
+			{
+				"name": "sales_id",
+				"type": "bigint",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "transaction_id",
+				"type": "text",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "customer_id",
+				"type": "bigint",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "product_id",
+				"type": "bigint",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "store_id",
+				"type": "bigint",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "date_id",
+				"type": "bigint",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "promotion_id",
+				"type": "bigint",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "quantity_sold",
+				"type": "bigint",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "unit_price",
+				"type": "numeric",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "total_amount",
+				"type": "numeric",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "discount_amount",
+				"type": "numeric",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "net_amount",
+				"type": "numeric",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "created_at",
+				"type": "timestamp without time zone",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "public",
+			"table": "FACT_SALES"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
