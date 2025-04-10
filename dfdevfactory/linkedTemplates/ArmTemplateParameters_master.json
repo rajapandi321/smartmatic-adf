@@ -1,0 +1,117 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "dfdevfactory"
+		},
+		"AZURE_DP_DB_SOURCE_accountKey": {
+			"value": ""
+		},
+		"AzureBatch1_accessKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"Data_Lake_Batch_connectionString": {
+			"value": ""
+		},
+		"LS_ActivityLog_accountKey": {
+			"value": ""
+		},
+		"LS_ActivityLogSynapse_password": {
+			"value": ""
+		},
+		"LS_Dataset_accountKey": {
+			"value": ""
+		},
+		"LS_EMPLSQL_connectionString": {
+			"value": ""
+		},
+		"LS_EMPLSTAGING_accountKey": {
+			"value": ""
+		},
+		"LS_Oracle_Source_connectionString": {
+			"value": ""
+		},
+		"LS_Postgres_Server_connectionString": {
+			"value": ""
+		},
+		"LS_Validation_POC_password": {
+			"value": ""
+		},
+		"execute_python_accessKey": {
+			"value": ""
+		},
+		"execute_python1_accessKey": {
+			"value": ""
+		},
+		"AZURE_DP_DB_SOURCE_properties_typeProperties_url": {
+			"value": "https://deeshasource.dfs.core.windows.net/"
+		},
+		"AzureBatch1_properties_typeProperties_batchUri": {
+			"value": "https://schedulepython.eastus2.batch.azure.com"
+		},
+		"AzureBatch1_properties_typeProperties_poolName": {
+			"value": "python-pool"
+		},
+		"AzureBatch1_properties_typeProperties_accountName": {
+			"value": "schedulepython"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://datalakeservice.dfs.core.windows.net/"
+		},
+		"LS_ActivityLog_properties_typeProperties_url": {
+			"value": "https://azuredp.dfs.core.windows.net/"
+		},
+		"LS_ActivityLogSynapse_properties_typeProperties_server": {
+			"value": "tcp:azuredp-enterprise-warehouse.sql.azuresynapse.net,1433"
+		},
+		"LS_ActivityLogSynapse_properties_typeProperties_database": {
+			"value": "dedsqlpool"
+		},
+		"LS_ActivityLogSynapse_properties_typeProperties_userName": {
+			"value": "azuredp203"
+		},
+		"LS_Dataset_properties_typeProperties_url": {
+			"value": "https://datalakeservice.dfs.core.windows.net/"
+		},
+		"LS_EMPLSTAGING_properties_typeProperties_url": {
+			"value": "https://datalakeservice.dfs.core.windows.net/"
+		},
+		"LS_Validation_POC_properties_typeProperties_server": {
+			"value": "azure-dp-203.database.windows.net"
+		},
+		"LS_Validation_POC_properties_typeProperties_database": {
+			"value": "azure-dp-db"
+		},
+		"LS_Validation_POC_properties_typeProperties_userName": {
+			"value": "azuredp203"
+		},
+		"execute_python_properties_typeProperties_batchUri": {
+			"value": "https://runpythonscript.eastus2.batch.azure.com"
+		},
+		"execute_python_properties_typeProperties_poolName": {
+			"value": "python-pool"
+		},
+		"execute_python_properties_typeProperties_accountName": {
+			"value": "runpythonscript "
+		},
+		"execute_python1_properties_typeProperties_batchUri": {
+			"value": "https://runpythonscript.eastus2.batch.azure.com"
+		},
+		"execute_python1_properties_typeProperties_poolName": {
+			"value": "python-pool"
+		},
+		"execute_python1_properties_typeProperties_accountName": {
+			"value": "runpythonscript"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

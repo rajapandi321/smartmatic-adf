@@ -1,0 +1,340 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "dfdevfactory"
+		},
+		"AZURE_DP_DB_SOURCE_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AZURE_DP_DB_SOURCE'"
+		},
+		"AzureBatch1_accessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessKey' of 'AzureBatch1'"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"Data_Lake_Batch_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Data_Lake_Batch'"
+		},
+		"LS_ActivityLog_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ActivityLog'"
+		},
+		"LS_ActivityLogSynapse_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_ActivityLogSynapse'"
+		},
+		"LS_Dataset_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_Dataset'"
+		},
+		"LS_EMPLSQL_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_EMPLSQL'"
+		},
+		"LS_EMPLSTAGING_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_EMPLSTAGING'"
+		},
+		"LS_Oracle_Source_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_Oracle_Source'"
+		},
+		"LS_Postgres_Server_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_Postgres_Server'"
+		},
+		"LS_Validation_POC_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_Validation_POC'"
+		},
+		"execute_python_accessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessKey' of 'execute_python'"
+		},
+		"execute_python1_accessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessKey' of 'execute_python1'"
+		},
+		"AZURE_DP_DB_SOURCE_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://deeshasource.dfs.core.windows.net/"
+		},
+		"AzureBatch1_properties_typeProperties_batchUri": {
+			"type": "string",
+			"defaultValue": "https://schedulepython.eastus2.batch.azure.com"
+		},
+		"AzureBatch1_properties_typeProperties_poolName": {
+			"type": "string",
+			"defaultValue": "python-pool"
+		},
+		"AzureBatch1_properties_typeProperties_accountName": {
+			"type": "string",
+			"defaultValue": "schedulepython"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://datalakeservice.dfs.core.windows.net/"
+		},
+		"LS_ActivityLog_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://azuredp.dfs.core.windows.net/"
+		},
+		"LS_ActivityLogSynapse_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "tcp:azuredp-enterprise-warehouse.sql.azuresynapse.net,1433"
+		},
+		"LS_ActivityLogSynapse_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "dedsqlpool"
+		},
+		"LS_ActivityLogSynapse_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "azuredp203"
+		},
+		"LS_Dataset_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://datalakeservice.dfs.core.windows.net/"
+		},
+		"LS_EMPLSTAGING_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://datalakeservice.dfs.core.windows.net/"
+		},
+		"LS_Validation_POC_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "azure-dp-203.database.windows.net"
+		},
+		"LS_Validation_POC_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "azure-dp-db"
+		},
+		"LS_Validation_POC_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "azuredp203"
+		},
+		"execute_python_properties_typeProperties_batchUri": {
+			"type": "string",
+			"defaultValue": "https://runpythonscript.eastus2.batch.azure.com"
+		},
+		"execute_python_properties_typeProperties_poolName": {
+			"type": "string",
+			"defaultValue": "python-pool"
+		},
+		"execute_python_properties_typeProperties_accountName": {
+			"type": "string",
+			"defaultValue": "runpythonscript "
+		},
+		"execute_python1_properties_typeProperties_batchUri": {
+			"type": "string",
+			"defaultValue": "https://runpythonscript.eastus2.batch.azure.com"
+		},
+		"execute_python1_properties_typeProperties_poolName": {
+			"type": "string",
+			"defaultValue": "python-pool"
+		},
+		"execute_python1_properties_typeProperties_accountName": {
+			"type": "string",
+			"defaultValue": "runpythonscript"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "dfdevfactory_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AZURE_DP_DB_SOURCE_accountKey": {
+						"value": "[parameters('AZURE_DP_DB_SOURCE_accountKey')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"Data_Lake_Batch_connectionString": {
+						"value": "[parameters('Data_Lake_Batch_connectionString')]"
+					},
+					"LS_ActivityLog_accountKey": {
+						"value": "[parameters('LS_ActivityLog_accountKey')]"
+					},
+					"LS_ActivityLogSynapse_password": {
+						"value": "[parameters('LS_ActivityLogSynapse_password')]"
+					},
+					"LS_Dataset_accountKey": {
+						"value": "[parameters('LS_Dataset_accountKey')]"
+					},
+					"LS_EMPLSQL_connectionString": {
+						"value": "[parameters('LS_EMPLSQL_connectionString')]"
+					},
+					"LS_EMPLSTAGING_accountKey": {
+						"value": "[parameters('LS_EMPLSTAGING_accountKey')]"
+					},
+					"LS_Oracle_Source_connectionString": {
+						"value": "[parameters('LS_Oracle_Source_connectionString')]"
+					},
+					"LS_Postgres_Server_connectionString": {
+						"value": "[parameters('LS_Postgres_Server_connectionString')]"
+					},
+					"LS_Validation_POC_password": {
+						"value": "[parameters('LS_Validation_POC_password')]"
+					},
+					"AZURE_DP_DB_SOURCE_properties_typeProperties_url": {
+						"value": "[parameters('AZURE_DP_DB_SOURCE_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"LS_ActivityLog_properties_typeProperties_url": {
+						"value": "[parameters('LS_ActivityLog_properties_typeProperties_url')]"
+					},
+					"LS_ActivityLogSynapse_properties_typeProperties_server": {
+						"value": "[parameters('LS_ActivityLogSynapse_properties_typeProperties_server')]"
+					},
+					"LS_ActivityLogSynapse_properties_typeProperties_database": {
+						"value": "[parameters('LS_ActivityLogSynapse_properties_typeProperties_database')]"
+					},
+					"LS_ActivityLogSynapse_properties_typeProperties_userName": {
+						"value": "[parameters('LS_ActivityLogSynapse_properties_typeProperties_userName')]"
+					},
+					"LS_Dataset_properties_typeProperties_url": {
+						"value": "[parameters('LS_Dataset_properties_typeProperties_url')]"
+					},
+					"LS_EMPLSTAGING_properties_typeProperties_url": {
+						"value": "[parameters('LS_EMPLSTAGING_properties_typeProperties_url')]"
+					},
+					"LS_Validation_POC_properties_typeProperties_server": {
+						"value": "[parameters('LS_Validation_POC_properties_typeProperties_server')]"
+					},
+					"LS_Validation_POC_properties_typeProperties_database": {
+						"value": "[parameters('LS_Validation_POC_properties_typeProperties_database')]"
+					},
+					"LS_Validation_POC_properties_typeProperties_userName": {
+						"value": "[parameters('LS_Validation_POC_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "dfdevfactory_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBatch1_accessKey": {
+						"value": "[parameters('AzureBatch1_accessKey')]"
+					},
+					"execute_python_accessKey": {
+						"value": "[parameters('execute_python_accessKey')]"
+					},
+					"execute_python1_accessKey": {
+						"value": "[parameters('execute_python1_accessKey')]"
+					},
+					"AzureBatch1_properties_typeProperties_batchUri": {
+						"value": "[parameters('AzureBatch1_properties_typeProperties_batchUri')]"
+					},
+					"AzureBatch1_properties_typeProperties_poolName": {
+						"value": "[parameters('AzureBatch1_properties_typeProperties_poolName')]"
+					},
+					"AzureBatch1_properties_typeProperties_accountName": {
+						"value": "[parameters('AzureBatch1_properties_typeProperties_accountName')]"
+					},
+					"execute_python_properties_typeProperties_batchUri": {
+						"value": "[parameters('execute_python_properties_typeProperties_batchUri')]"
+					},
+					"execute_python_properties_typeProperties_poolName": {
+						"value": "[parameters('execute_python_properties_typeProperties_poolName')]"
+					},
+					"execute_python_properties_typeProperties_accountName": {
+						"value": "[parameters('execute_python_properties_typeProperties_accountName')]"
+					},
+					"execute_python1_properties_typeProperties_batchUri": {
+						"value": "[parameters('execute_python1_properties_typeProperties_batchUri')]"
+					},
+					"execute_python1_properties_typeProperties_poolName": {
+						"value": "[parameters('execute_python1_properties_typeProperties_poolName')]"
+					},
+					"execute_python1_properties_typeProperties_accountName": {
+						"value": "[parameters('execute_python1_properties_typeProperties_accountName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'dfdevfactory_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "dfdevfactory_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'dfdevfactory_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "dfdevfactory_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'dfdevfactory_ArmTemplate_2')]"
+			]
+		}
+	]
+}

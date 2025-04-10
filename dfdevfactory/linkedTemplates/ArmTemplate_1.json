@@ -1,0 +1,1347 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "dfdevfactory"
+		},
+		"AzureBatch1_accessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessKey' of 'AzureBatch1'"
+		},
+		"execute_python_accessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessKey' of 'execute_python'"
+		},
+		"execute_python1_accessKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessKey' of 'execute_python1'"
+		},
+		"AzureBatch1_properties_typeProperties_batchUri": {
+			"type": "string",
+			"defaultValue": "https://schedulepython.eastus2.batch.azure.com"
+		},
+		"AzureBatch1_properties_typeProperties_poolName": {
+			"type": "string",
+			"defaultValue": "python-pool"
+		},
+		"AzureBatch1_properties_typeProperties_accountName": {
+			"type": "string",
+			"defaultValue": "schedulepython"
+		},
+		"execute_python_properties_typeProperties_batchUri": {
+			"type": "string",
+			"defaultValue": "https://runpythonscript.eastus2.batch.azure.com"
+		},
+		"execute_python_properties_typeProperties_poolName": {
+			"type": "string",
+			"defaultValue": "python-pool"
+		},
+		"execute_python_properties_typeProperties_accountName": {
+			"type": "string",
+			"defaultValue": "runpythonscript "
+		},
+		"execute_python1_properties_typeProperties_batchUri": {
+			"type": "string",
+			"defaultValue": "https://runpythonscript.eastus2.batch.azure.com"
+		},
+		"execute_python1_properties_typeProperties_poolName": {
+			"type": "string",
+			"defaultValue": "python-pool"
+		},
+		"execute_python1_properties_typeProperties_accountName": {
+			"type": "string",
+			"defaultValue": "runpythonscript"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_FACT_PROMOTION_EFFECTIVENESS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Oracle_Source",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Source"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "RAJA",
+					"table": "FACT_PROMOTION_EFFECTIVENESS"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_FACT_RETURNS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Oracle_Source",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Source"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "RAJA",
+					"table": "FACT_RETURNS"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_FACT_SALES')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Oracle_Source",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Source"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "RAJA",
+					"table": "FACT_SALES"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_INCREMENTAL_RESULTS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_ActivityLog",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "ora2pg"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PG_DIM_BRAND')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Postgres_Server",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination"
+				},
+				"annotations": [],
+				"type": "AzurePostgreSqlTable",
+				"schema": [
+					{
+						"name": "brand_id",
+						"type": "integer",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "brand_name",
+						"type": "character varying",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "brand_description",
+						"type": "character varying",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "created_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "updated_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "public",
+					"table": "dim_brand"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PG_DIM_CATEGORY')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Postgres_Server",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination"
+				},
+				"annotations": [],
+				"type": "AzurePostgreSqlTable",
+				"schema": [
+					{
+						"name": "category_id",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "category_name",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "parent_category_id",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "created_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "updated_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "public",
+					"table": "dim_category"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PG_DIM_CUSTOMER')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Postgres_Server",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination"
+				},
+				"annotations": [],
+				"type": "AzurePostgreSqlTable",
+				"schema": [
+					{
+						"name": "customer_id",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "first_name",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "last_name",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "email",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "phone_number",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "address",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "city",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "state",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "country",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "postal_code",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "customer_segment",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "created_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "updated_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "public",
+					"table": "dim_customer"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PG_DIM_DATE')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Postgres_Server",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination"
+				},
+				"annotations": [],
+				"type": "AzurePostgreSqlTable",
+				"schema": [
+					{
+						"name": "date_id",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "date",
+						"type": "date",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "day",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "month",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "year",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "quarter",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "week",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "day_of_week",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "is_weekend",
+						"type": "boolean",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "is_holiday",
+						"type": "boolean",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "public",
+					"table": "dim_date"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PG_DIM_PRODUCT')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Postgres_Server",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination"
+				},
+				"annotations": [],
+				"type": "AzurePostgreSqlTable",
+				"schema": [
+					{
+						"name": "product_id",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "product_name",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "product_description",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "category_id",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "brand_id",
+						"type": "integer",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "unit_price",
+						"type": "numeric",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "cost_price",
+						"type": "numeric",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "sku",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "created_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "updated_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "public",
+					"table": "dim_product"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PG_DIM_PROMOTION')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Postgres_Server",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination"
+				},
+				"annotations": [],
+				"type": "AzurePostgreSqlTable",
+				"schema": [
+					{
+						"name": "promotion_id",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "promotion_name",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "promotion_description",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "discount_type",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "discount_value",
+						"type": "numeric",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "start_date",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "end_date",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "created_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "updated_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "public",
+					"table": "dim_promotion"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PG_DIM_STORE')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Postgres_Server",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination"
+				},
+				"annotations": [],
+				"type": "AzurePostgreSqlTable",
+				"schema": [
+					{
+						"name": "store_id",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "store_name",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "store_address",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "city",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "state",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "country",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "postal_code",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "store_manager",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "created_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "updated_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "public",
+					"table": "dim_store"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PG_FACT_INVENTORY')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Postgres_Server",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination"
+				},
+				"annotations": [],
+				"type": "AzurePostgreSqlTable",
+				"schema": [
+					{
+						"name": "inventory_id",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "product_id",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "store_id",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "date_id",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "stock_on_hand",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "stock_sold",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "stock_received",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "minimum_stock_level",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "maximum_stock_level",
+						"type": "numeric",
+						"precision": 38,
+						"scale": 0
+					},
+					{
+						"name": "created_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "updated_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "public",
+					"table": "fact_inventory"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PG_FACT_PROMOTION_EFFECTIVENESS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Postgres_Server",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination"
+				},
+				"annotations": [],
+				"type": "AzurePostgreSqlTable",
+				"schema": [
+					{
+						"name": "promotion_id",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "date_id",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "store_id",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "total_sales_amount",
+						"type": "numeric",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "total_discount_amount",
+						"type": "numeric",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "total_units_sold",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "created_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "public",
+					"table": "fact_promotion_effectiveness"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PG_FACT_RETURNS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Postgres_Server",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination"
+				},
+				"annotations": [],
+				"type": "AzurePostgreSqlTable",
+				"schema": [
+					{
+						"name": "return_id",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "sales_id",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "customer_id",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "product_id",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "store_id",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "date_id",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "return_quantity",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "return_reason",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "refund_amount",
+						"type": "numeric",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "created_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "public",
+					"table": "fact_returns"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PG_FACT_SALES')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Postgres_Server",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destination"
+				},
+				"annotations": [],
+				"type": "AzurePostgreSqlTable",
+				"schema": [
+					{
+						"name": "sales_id",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "transaction_id",
+						"type": "text",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "customer_id",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "product_id",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "store_id",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "date_id",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "promotion_id",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "quantity_sold",
+						"type": "bigint",
+						"precision": 0,
+						"scale": 0
+					},
+					{
+						"name": "unit_price",
+						"type": "numeric",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "total_amount",
+						"type": "numeric",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "discount_amount",
+						"type": "numeric",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "net_amount",
+						"type": "numeric",
+						"precision": 10,
+						"scale": 2
+					},
+					{
+						"name": "created_at",
+						"type": "timestamp without time zone",
+						"precision": 0,
+						"scale": 0
+					}
+				],
+				"typeProperties": {
+					"schema": "public",
+					"table": "fact_sales"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBatch1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBatch",
+				"typeProperties": {
+					"batchUri": "[parameters('AzureBatch1_properties_typeProperties_batchUri')]",
+					"poolName": "[parameters('AzureBatch1_properties_typeProperties_poolName')]",
+					"accountName": "[parameters('AzureBatch1_properties_typeProperties_accountName')]",
+					"linkedServiceName": {
+						"referenceName": "Data_Lake_Batch",
+						"type": "LinkedServiceReference"
+					},
+					"accessKey": {
+						"type": "SecureString",
+						"value": "[parameters('AzureBatch1_accessKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/execute_python')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBatch",
+				"typeProperties": {
+					"batchUri": "[parameters('execute_python_properties_typeProperties_batchUri')]",
+					"poolName": "[parameters('execute_python_properties_typeProperties_poolName')]",
+					"accountName": "[parameters('execute_python_properties_typeProperties_accountName')]",
+					"linkedServiceName": {
+						"referenceName": "Data_Lake_Batch",
+						"type": "LinkedServiceReference"
+					},
+					"accessKey": {
+						"type": "SecureString",
+						"value": "[parameters('execute_python_accessKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/execute_python1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBatch",
+				"typeProperties": {
+					"batchUri": "[parameters('execute_python1_properties_typeProperties_batchUri')]",
+					"poolName": "[parameters('execute_python1_properties_typeProperties_poolName')]",
+					"accountName": "[parameters('execute_python1_properties_typeProperties_accountName')]",
+					"linkedServiceName": {
+						"referenceName": "Data_Lake_Batch",
+						"type": "LinkedServiceReference"
+					},
+					"accessKey": {
+						"type": "SecureString",
+						"value": "[parameters('execute_python1_accessKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dim_brand')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "dim_brand",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzurePostgreSQLSink",
+								"writeBatchSize": 1000000,
+								"writeBatchTimeout": "00:30:00",
+								"writeMethod": "CopyCommand"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "BRAND_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "brand_id",
+											"type": "Int32",
+											"physicalType": "integer"
+										}
+									},
+									{
+										"source": {
+											"name": "BRAND_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "brand_name",
+											"type": "String",
+											"physicalType": "character varying"
+										}
+									},
+									{
+										"source": {
+											"name": "BRAND_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "brand_description",
+											"type": "String",
+											"physicalType": "character varying"
+										}
+									},
+									{
+										"source": {
+											"name": "CREATED_AT",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "created_at",
+											"type": "DateTime",
+											"physicalType": "timestamp without time zone"
+										}
+									},
+									{
+										"source": {
+											"name": "UPDATED_AT",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "updated_at",
+											"type": "DateTime",
+											"physicalType": "timestamp without time zone"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DS_DIM_BRAND",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "PG_DIM_BRAND",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"folder": {
+					"name": "Data Migration"
+				},
+				"annotations": [],
+				"lastPublishTime": "2025-04-08T02:38:56Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/PG_DIM_BRAND')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dim_category')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "dim_category",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzurePostgreSQLSink",
+								"writeBatchSize": 1000000,
+								"writeBatchTimeout": "00:30:00",
+								"writeMethod": "CopyCommand"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "CATEGORY_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "category_id",
+											"type": "Int32",
+											"physicalType": "integer"
+										}
+									},
+									{
+										"source": {
+											"name": "CATEGORY_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "category_name",
+											"type": "String",
+											"physicalType": "character varying"
+										}
+									},
+									{
+										"source": {
+											"name": "PARENT_CATEGORY_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "parent_category_id",
+											"type": "Int32",
+											"physicalType": "integer"
+										}
+									},
+									{
+										"source": {
+											"name": "CREATED_AT",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "created_at",
+											"type": "DateTime",
+											"physicalType": "timestamp without time zone"
+										}
+									},
+									{
+										"source": {
+											"name": "UPDATED_AT",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "updated_at",
+											"type": "DateTime",
+											"physicalType": "timestamp without time zone"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DS_DIM_CATEGORY",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "PG_DIM_CATEGORY",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"folder": {
+					"name": "Data Migration"
+				},
+				"annotations": [],
+				"lastPublishTime": "2025-04-09T12:25:19Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/PG_DIM_CATEGORY')]"
+			]
+		}
+	]
+}
