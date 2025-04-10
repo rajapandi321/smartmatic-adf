@@ -74,7 +74,7 @@
 		],
 		"typeProperties": {
 			"schema": "public",
-			"table": "FACT_RETURNS"
+			"table": "fact_returns"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
