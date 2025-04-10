@@ -92,7 +92,7 @@
 		],
 		"typeProperties": {
 			"schema": "public",
-			"table": "FACT_SALES"
+			"table": "fact_sales"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
