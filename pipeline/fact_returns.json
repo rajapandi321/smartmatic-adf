@@ -36,9 +36,9 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "RETURN_ID",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"name": "return_id",
+									"type": "Int32",
+									"physicalType": "integer"
 								}
 							},
 							{
@@ -47,9 +47,9 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "SALES_ID",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"name": "sales_id",
+									"type": "Int32",
+									"physicalType": "integer"
 								}
 							},
 							{
@@ -58,9 +58,9 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "CUSTOMER_ID",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"name": "customer_id",
+									"type": "Int32",
+									"physicalType": "integer"
 								}
 							},
 							{
@@ -69,9 +69,9 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "PRODUCT_ID",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"name": "product_id",
+									"type": "Int32",
+									"physicalType": "integer"
 								}
 							},
 							{
@@ -80,9 +80,9 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "STORE_ID",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"name": "store_id",
+									"type": "Int32",
+									"physicalType": "integer"
 								}
 							},
 							{
@@ -91,9 +91,9 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "DATE_ID",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"name": "date_id",
+									"type": "Int32",
+									"physicalType": "integer"
 								}
 							},
 							{
@@ -102,9 +102,9 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "RETURN_QUANTITY",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"name": "return_quantity",
+									"type": "Int32",
+									"physicalType": "integer"
 								}
 							},
 							{
@@ -113,7 +113,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "RETURN_REASON",
+									"name": "return_reason",
 									"type": "String",
 									"physicalType": "character varying"
 								}
@@ -124,7 +124,7 @@
 									"type": "Decimal"
 								},
 								"sink": {
-									"name": "REFUND_AMOUNT",
+									"name": "refund_amount",
 									"type": "Decimal",
 									"physicalType": "numeric"
 								}
@@ -135,7 +135,7 @@
 									"type": "DateTime"
 								},
 								"sink": {
-									"name": "CREATED_AT",
+									"name": "created_at",
 									"type": "DateTime",
 									"physicalType": "timestamp without time zone"
 								}
