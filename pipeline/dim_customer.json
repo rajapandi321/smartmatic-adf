@@ -37,8 +37,8 @@
 								},
 								"sink": {
 									"name": "customer_id",
-									"type": "Decimal",
-									"physicalType": "numeric"
+									"type": "Int32",
+									"physicalType": "integer"
 								}
 							},
 							{
@@ -49,7 +49,7 @@
 								"sink": {
 									"name": "first_name",
 									"type": "String",
-									"physicalType": "text"
+									"physicalType": "character varying"
 								}
 							},
 							{
@@ -60,7 +60,7 @@
 								"sink": {
 									"name": "last_name",
 									"type": "String",
-									"physicalType": "text"
+									"physicalType": "character varying"
 								}
 							},
 							{
@@ -71,7 +71,7 @@
 								"sink": {
 									"name": "email",
 									"type": "String",
-									"physicalType": "text"
+									"physicalType": "character varying"
 								}
 							},
 							{
@@ -82,7 +82,7 @@
 								"sink": {
 									"name": "phone_number",
 									"type": "String",
-									"physicalType": "text"
+									"physicalType": "character varying"
 								}
 							},
 							{
@@ -93,7 +93,7 @@
 								"sink": {
 									"name": "address",
 									"type": "String",
-									"physicalType": "text"
+									"physicalType": "character varying"
 								}
 							},
 							{
@@ -104,7 +104,7 @@
 								"sink": {
 									"name": "city",
 									"type": "String",
-									"physicalType": "text"
+									"physicalType": "character varying"
 								}
 							},
 							{
@@ -115,7 +115,7 @@
 								"sink": {
 									"name": "state",
 									"type": "String",
-									"physicalType": "text"
+									"physicalType": "character varying"
 								}
 							},
 							{
@@ -126,7 +126,7 @@
 								"sink": {
 									"name": "country",
 									"type": "String",
-									"physicalType": "text"
+									"physicalType": "character varying"
 								}
 							},
 							{
@@ -137,7 +137,7 @@
 								"sink": {
 									"name": "postal_code",
 									"type": "String",
-									"physicalType": "text"
+									"physicalType": "character varying"
 								}
 							},
 							{
@@ -148,7 +148,7 @@
 								"sink": {
 									"name": "customer_segment",
 									"type": "String",
-									"physicalType": "text"
+									"physicalType": "character varying"
 								}
 							},
 							{
