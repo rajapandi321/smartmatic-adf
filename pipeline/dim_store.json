@@ -36,9 +36,9 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "STORE_ID",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"name": "store_id",
+									"type": "Int32",
+									"physicalType": "integer"
 								}
 							},
 							{
@@ -47,7 +47,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "STORE_NAME",
+									"name": "store_name",
 									"type": "String",
 									"physicalType": "character varying"
 								}
@@ -58,7 +58,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "STORE_ADDRESS",
+									"name": "store_address",
 									"type": "String",
 									"physicalType": "character varying"
 								}
@@ -69,7 +69,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "CITY",
+									"name": "city",
 									"type": "String",
 									"physicalType": "character varying"
 								}
@@ -80,7 +80,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "STATE",
+									"name": "state",
 									"type": "String",
 									"physicalType": "character varying"
 								}
@@ -91,7 +91,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "COUNTRY",
+									"name": "country",
 									"type": "String",
 									"physicalType": "character varying"
 								}
@@ -102,7 +102,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "POSTAL_CODE",
+									"name": "postal_code",
 									"type": "String",
 									"physicalType": "character varying"
 								}
@@ -113,7 +113,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "STORE_MANAGER",
+									"name": "store_manager",
 									"type": "String",
 									"physicalType": "character varying"
 								}
@@ -124,7 +124,7 @@
 									"type": "DateTime"
 								},
 								"sink": {
-									"name": "CREATED_AT",
+									"name": "created_at",
 									"type": "DateTime",
 									"physicalType": "timestamp without time zone"
 								}
@@ -135,97 +135,9 @@
 									"type": "DateTime"
 								},
 								"sink": {
-									"name": "UPDATED_AT",
+									"name": "updated_at",
 									"type": "DateTime",
 									"physicalType": "timestamp without time zone"
-								}
-							},
-							{
-								"source": {
-									"name": "INVENTORY_ID",
-									"type": "String"
-								},
-								"sink": {
-									"name": "INVENTORY_ID",
-									"type": "Int64",
-									"physicalType": "bigint"
-								}
-							},
-							{
-								"source": {
-									"name": "PRODUCT_ID",
-									"type": "String"
-								},
-								"sink": {
-									"name": "PRODUCT_ID",
-									"type": "Int64",
-									"physicalType": "bigint"
-								}
-							},
-							{
-								"source": {
-									"name": "DATE_ID",
-									"type": "String"
-								},
-								"sink": {
-									"name": "DATE_ID",
-									"type": "Int64",
-									"physicalType": "bigint"
-								}
-							},
-							{
-								"source": {
-									"name": "STOCK_ON_HAND",
-									"type": "String"
-								},
-								"sink": {
-									"name": "STOCK_ON_HAND",
-									"type": "Int64",
-									"physicalType": "bigint"
-								}
-							},
-							{
-								"source": {
-									"name": "STOCK_SOLD",
-									"type": "String"
-								},
-								"sink": {
-									"name": "STOCK_SOLD",
-									"type": "Int64",
-									"physicalType": "bigint"
-								}
-							},
-							{
-								"source": {
-									"name": "STOCK_RECEIVED",
-									"type": "String"
-								},
-								"sink": {
-									"name": "STOCK_RECEIVED",
-									"type": "Int64",
-									"physicalType": "bigint"
-								}
-							},
-							{
-								"source": {
-									"name": "MINIMUM_STOCK_LEVEL",
-									"type": "String"
-								},
-								"sink": {
-									"name": "MINIMUM_STOCK_LEVEL",
-									"type": "Int64",
-									"physicalType": "bigint"
-								}
-							},
-							{
-								"source": {
-									"name": "MAXIMUM_STOCK_LEVEL",
-									"type": "String"
-								},
-								"sink": {
-									"name": "MAXIMUM_STOCK_LEVEL",
-									"type": "Int64",
-									"physicalType": "bigint"
 								}
 							}
 						],
