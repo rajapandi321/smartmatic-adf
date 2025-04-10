@@ -92,7 +92,7 @@
 		],
 		"typeProperties": {
 			"schema": "public",
-			"table": "DIM_CUSTOMER"
+			"table": "dim_customer"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
