@@ -56,7 +56,7 @@
 		],
 		"typeProperties": {
 			"schema": "public",
-			"table": "FACT_PROMOTION_EFFECTIVENESS"
+			"table": "fact_promotion_effectiveness"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
