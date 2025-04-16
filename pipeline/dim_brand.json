@@ -16,9 +16,15 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "OracleSource",
-						"partitionOption": "None",
-						"queryTimeout": "02:00:00"
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
 					},
 					"sink": {
 						"type": "AzureSqlSink",
@@ -28,63 +34,6 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"source": {
-									"name": "BRAND_ID",
-									"type": "String"
-								},
-								"sink": {
-									"name": "brand_id",
-									"type": "Int32",
-									"physicalType": "integer"
-								}
-							},
-							{
-								"source": {
-									"name": "BRAND_NAME",
-									"type": "String"
-								},
-								"sink": {
-									"name": "brand_name",
-									"type": "String",
-									"physicalType": "character varying"
-								}
-							},
-							{
-								"source": {
-									"name": "BRAND_DESCRIPTION",
-									"type": "String"
-								},
-								"sink": {
-									"name": "brand_description",
-									"type": "String",
-									"physicalType": "character varying"
-								}
-							},
-							{
-								"source": {
-									"name": "CREATED_AT",
-									"type": "DateTime"
-								},
-								"sink": {
-									"name": "created_at",
-									"type": "DateTime",
-									"physicalType": "timestamp without time zone"
-								}
-							},
-							{
-								"source": {
-									"name": "UPDATED_AT",
-									"type": "DateTime"
-								},
-								"sink": {
-									"name": "updated_at",
-									"type": "DateTime",
-									"physicalType": "timestamp without time zone"
-								}
-							}
-						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
@@ -94,8 +43,11 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_DIM_BRAND",
-						"type": "DatasetReference"
+						"referenceName": "DL_Retail_Analytics",
+						"type": "DatasetReference",
+						"parameters": {
+							"file_name": "dim_brand.csv"
+						}
 					}
 				],
 				"outputs": [
