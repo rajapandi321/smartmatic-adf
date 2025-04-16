@@ -16,15 +16,20 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "OracleSource",
-						"partitionOption": "None",
-						"queryTimeout": "02:00:00"
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
 					},
 					"sink": {
-						"type": "AzurePostgreSQLSink",
-						"writeBatchSize": 1000000,
-						"writeBatchTimeout": "00:30:00",
-						"writeMethod": "CopyCommand"
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
 					"translator": {
@@ -183,14 +188,20 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_DIM_CUSTOMER",
-						"type": "DatasetReference"
+						"referenceName": "DL_Retail_Analytics",
+						"type": "DatasetReference",
+						"parameters": {
+							"file_name": "dim_customer"
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "PG_DIM_CUSTOMER",
-						"type": "DatasetReference"
+						"referenceName": "DS_Retail_Analytics",
+						"type": "DatasetReference",
+						"parameters": {
+							"table_name": "dim_customer"
+						}
 					}
 				]
 			}
