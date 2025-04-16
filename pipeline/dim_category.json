@@ -16,15 +16,20 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "OracleSource",
-						"partitionOption": "None",
-						"queryTimeout": "02:00:00"
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
 					},
 					"sink": {
-						"type": "AzurePostgreSQLSink",
-						"writeBatchSize": 1000000,
-						"writeBatchTimeout": "00:30:00",
-						"writeMethod": "CopyCommand"
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
 					"translator": {
@@ -33,56 +38,61 @@
 							{
 								"source": {
 									"name": "CATEGORY_ID",
-									"type": "String"
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "category_id",
+									"name": "CATEGORY_ID",
 									"type": "Int32",
-									"physicalType": "integer"
+									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
 									"name": "CATEGORY_NAME",
-									"type": "String"
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "category_name",
+									"name": "CATEGORY_NAME",
 									"type": "String",
-									"physicalType": "character varying"
+									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
 									"name": "PARENT_CATEGORY_ID",
-									"type": "String"
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "parent_category_id",
+									"name": "PARENT_CATEGORY_ID",
 									"type": "Int32",
-									"physicalType": "integer"
+									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
 									"name": "CREATED_AT",
-									"type": "DateTime"
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "created_at",
+									"name": "CREATED_AT",
 									"type": "DateTime",
-									"physicalType": "timestamp without time zone"
+									"physicalType": "datetime"
 								}
 							},
 							{
 								"source": {
 									"name": "UPDATED_AT",
-									"type": "DateTime"
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "updated_at",
+									"name": "UPDATED_AT",
 									"type": "DateTime",
-									"physicalType": "timestamp without time zone"
+									"physicalType": "datetime"
 								}
 							}
 						],
@@ -95,14 +105,20 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_DIM_CATEGORY",
-						"type": "DatasetReference"
+						"referenceName": "DL_Retail_Analytics",
+						"type": "DatasetReference",
+						"parameters": {
+							"file_name": "dim_category.csv"
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "PG_DIM_CATEGORY",
-						"type": "DatasetReference"
+						"referenceName": "DS_Retail_Analytics",
+						"type": "DatasetReference",
+						"parameters": {
+							"table_name": "dim_category"
+						}
 					}
 				]
 			}
