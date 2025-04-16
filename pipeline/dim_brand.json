@@ -21,10 +21,9 @@
 						"queryTimeout": "02:00:00"
 					},
 					"sink": {
-						"type": "AzurePostgreSQLSink",
-						"writeBatchSize": 1000000,
-						"writeBatchTimeout": "00:30:00",
-						"writeMethod": "CopyCommand"
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
 					"translator": {
@@ -101,8 +100,11 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "PG_DIM_BRAND",
-						"type": "DatasetReference"
+						"referenceName": "DS_Retail_Analytics",
+						"type": "DatasetReference",
+						"parameters": {
+							"table_name": "dim_brand"
+						}
 					}
 				]
 			}
