@@ -16,9 +16,15 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "OracleSource",
-						"partitionOption": "None",
-						"queryTimeout": "02:00:00"
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
 					},
 					"sink": {
 						"type": "AzurePostgreSQLSink",
@@ -33,84 +39,80 @@
 							{
 								"source": {
 									"name": "DATE_ID",
-									"type": "Double"
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "date_id",
-									"type": "Int32",
-									"physicalType": "integer"
-								}
-							},
-							{
-								"source": {
-									"name": "DATE_VALUE",
-									"type": "DateTime"
-								},
-								"sink": {
-									"name": "date",
-									"type": "DateTime",
-									"physicalType": "date"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
 								"source": {
 									"name": "DAY",
-									"type": "String"
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "day",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "String",
+									"physicalType": "character varying"
 								}
 							},
 							{
 								"source": {
 									"name": "MONTH",
-									"type": "Double"
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "month",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
 								"source": {
 									"name": "YEAR",
-									"type": "Double"
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "year",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
 								"source": {
 									"name": "QUARTER",
-									"type": "Double"
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "quarter",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
 								"source": {
 									"name": "WEEK",
-									"type": "Double"
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "week",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
 								"source": {
 									"name": "DAY_OF_WEEK",
-									"type": "String"
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "day_of_week",
@@ -121,23 +123,32 @@
 							{
 								"source": {
 									"name": "IS_WEEKEND",
-									"type": "String"
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "is_weekend",
-									"type": "Boolean",
-									"physicalType": "boolean"
+									"type": "String",
+									"physicalType": "character varying"
 								}
 							},
 							{
 								"source": {
 									"name": "IS_HOLIDAY",
-									"type": "String"
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "is_holiday",
-									"type": "Boolean",
-									"physicalType": "boolean"
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"sink": {
+									"name": "date_value",
+									"type": "DateTime",
+									"physicalType": "date"
 								}
 							}
 						],
@@ -150,8 +161,11 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_DIM_DATE",
-						"type": "DatasetReference"
+						"referenceName": "DL_Retail_Analytics",
+						"type": "DatasetReference",
+						"parameters": {
+							"file_name": "dim_date.csv"
+						}
 					}
 				],
 				"outputs": [
