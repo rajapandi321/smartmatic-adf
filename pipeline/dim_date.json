@@ -145,6 +145,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "DATE",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "date_value",
 									"type": "DateTime",
