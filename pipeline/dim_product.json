@@ -37,8 +37,8 @@
 								},
 								"sink": {
 									"name": "product_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -70,8 +70,8 @@
 								},
 								"sink": {
 									"name": "category_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -81,8 +81,8 @@
 								},
 								"sink": {
 									"name": "brand_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
