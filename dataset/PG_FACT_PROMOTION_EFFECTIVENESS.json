@@ -55,7 +55,7 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "public",
+			"schema": "test",
 			"table": "fact_promotion_effectiveness"
 		}
 	},
