@@ -37,8 +37,8 @@
 								},
 								"sink": {
 									"name": "promotion_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -48,8 +48,8 @@
 								},
 								"sink": {
 									"name": "date_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -59,8 +59,8 @@
 								},
 								"sink": {
 									"name": "store_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -92,8 +92,8 @@
 								},
 								"sink": {
 									"name": "total_units_sold",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
