@@ -50,6 +50,18 @@
 							},
 							{
 								"source": {
+									"name": "DATE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "date_value",
+									"type": "DateTime",
+									"physicalType": "timestamp without time zone"
+								}
+							},
+							{
+								"source": {
 									"name": "DAY",
 									"type": "String",
 									"physicalType": "String"
@@ -68,30 +80,6 @@
 								},
 								"sink": {
 									"name": "month",
-									"type": "Decimal",
-									"physicalType": "numeric"
-								}
-							},
-							{
-								"source": {
-									"name": "YEAR",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "year",
-									"type": "Decimal",
-									"physicalType": "numeric"
-								}
-							},
-							{
-								"source": {
-									"name": "QUARTER",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "quarter",
 									"type": "Decimal",
 									"physicalType": "numeric"
 								}
@@ -122,6 +110,30 @@
 							},
 							{
 								"source": {
+									"name": "QUARTER",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "quarter",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "YEAR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "year",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
 									"name": "IS_WEEKEND",
 									"type": "String",
 									"physicalType": "String"
@@ -142,18 +154,6 @@
 									"name": "is_holiday",
 									"type": "String",
 									"physicalType": "character varying"
-								}
-							},
-							{
-								"source": {
-									"name": "DATE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "date_value",
-									"type": "DateTime",
-									"physicalType": "date"
 								}
 							}
 						],
