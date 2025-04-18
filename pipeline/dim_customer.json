@@ -145,6 +145,13 @@
 								}
 							},
 							{
+								"sink": {
+									"name": "zip_code",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
 								"source": {
 									"name": "CUSTOMER_SEGMENT",
 									"type": "String",
@@ -178,18 +185,6 @@
 									"name": "updated_at",
 									"type": "DateTime",
 									"physicalType": "timestamp without time zone"
-								}
-							},
-							{
-								"source": {
-									"name": "POSTAL_CODE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "zip_code",
-									"type": "String",
-									"physicalType": "character varying"
 								}
 							}
 						],
