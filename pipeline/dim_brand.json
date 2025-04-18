@@ -27,9 +27,10 @@
 						}
 					},
 					"sink": {
-						"type": "AzureSqlSink",
-						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false
+						"type": "AzurePostgreSQLSink",
+						"writeBatchSize": 1000000,
+						"writeBatchTimeout": "00:30:00",
+						"writeMethod": "CopyCommand"
 					},
 					"enableStaging": false,
 					"translator": {
@@ -42,9 +43,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "BRAND_ID",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "brand_id",
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -54,9 +55,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "BRAND_NAME",
+									"name": "brand_name",
 									"type": "String",
-									"physicalType": "varchar"
+									"physicalType": "character varying"
 								}
 							},
 							{
@@ -66,9 +67,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "BRAND_DESCRIPTION",
+									"name": "brand_description",
 									"type": "String",
-									"physicalType": "varchar"
+									"physicalType": "character varying"
 								}
 							},
 							{
@@ -78,9 +79,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "CREATED_AT",
+									"name": "created_at",
 									"type": "DateTime",
-									"physicalType": "datetime"
+									"physicalType": "timestamp without time zone"
 								}
 							},
 							{
@@ -90,9 +91,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "UPDATED_AT",
+									"name": "updated_at",
 									"type": "DateTime",
-									"physicalType": "datetime"
+									"physicalType": "timestamp without time zone"
 								}
 							}
 						],
@@ -114,11 +115,8 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_Retail_Analytics",
-						"type": "DatasetReference",
-						"parameters": {
-							"table_name": "dim_brand"
-						}
+						"referenceName": "PG_DIM_BRAND",
+						"type": "DatasetReference"
 					}
 				]
 			}
