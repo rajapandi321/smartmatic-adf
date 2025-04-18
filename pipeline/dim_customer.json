@@ -145,6 +145,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "POSTAL_CODE",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "zip_code",
 									"type": "String",

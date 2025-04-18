@@ -19,74 +19,74 @@
 			},
 			{
 				"name": "first_name",
-				"type": "text",
+				"type": "character varying",
 				"precision": 0,
 				"scale": 0
 			},
 			{
 				"name": "last_name",
-				"type": "text",
+				"type": "character varying",
 				"precision": 0,
 				"scale": 0
 			},
 			{
 				"name": "email",
-				"type": "text",
+				"type": "character varying",
 				"precision": 0,
 				"scale": 0
 			},
 			{
 				"name": "phone_number",
-				"type": "text",
+				"type": "character varying",
 				"precision": 0,
 				"scale": 0
 			},
 			{
 				"name": "address",
-				"type": "text",
+				"type": "character varying",
 				"precision": 0,
 				"scale": 0
 			},
 			{
 				"name": "city",
-				"type": "text",
+				"type": "character varying",
 				"precision": 0,
 				"scale": 0
 			},
 			{
 				"name": "state",
-				"type": "text",
+				"type": "character varying",
 				"precision": 0,
 				"scale": 0
 			},
 			{
 				"name": "country",
-				"type": "text",
+				"type": "character varying",
 				"precision": 0,
 				"scale": 0
 			},
 			{
-				"name": "postal_code",
-				"type": "text",
+				"name": "zip_code",
+				"type": "character varying",
 				"precision": 0,
 				"scale": 0
 			},
 			{
 				"name": "customer_segment",
-				"type": "text",
+				"type": "character varying",
 				"precision": 0,
 				"scale": 0
 			},
 			{
 				"name": "created_at",
 				"type": "timestamp without time zone",
-				"precision": 0,
+				"precision": 6,
 				"scale": 0
 			},
 			{
 				"name": "updated_at",
 				"type": "timestamp without time zone",
-				"precision": 0,
+				"precision": 6,
 				"scale": 0
 			}
 		],
