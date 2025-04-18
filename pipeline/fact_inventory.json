@@ -37,8 +37,8 @@
 								},
 								"sink": {
 									"name": "inventory_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -48,8 +48,8 @@
 								},
 								"sink": {
 									"name": "product_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -59,8 +59,8 @@
 								},
 								"sink": {
 									"name": "store_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -70,8 +70,8 @@
 								},
 								"sink": {
 									"name": "date_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -81,8 +81,8 @@
 								},
 								"sink": {
 									"name": "stock_on_hand",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -92,8 +92,8 @@
 								},
 								"sink": {
 									"name": "stock_sold",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -103,8 +103,8 @@
 								},
 								"sink": {
 									"name": "stock_received",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -114,8 +114,8 @@
 								},
 								"sink": {
 									"name": "minimum_stock_level",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -125,8 +125,8 @@
 								},
 								"sink": {
 									"name": "maximum_stock_level",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
