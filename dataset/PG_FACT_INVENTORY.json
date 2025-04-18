@@ -68,18 +68,18 @@
 			{
 				"name": "created_at",
 				"type": "timestamp without time zone",
-				"precision": 0,
+				"precision": 6,
 				"scale": 0
 			},
 			{
 				"name": "updated_at",
 				"type": "timestamp without time zone",
-				"precision": 0,
+				"precision": 6,
 				"scale": 0
 			}
 		],
 		"typeProperties": {
-			"schema": "public",
+			"schema": "test",
 			"table": "fact_inventory"
 		}
 	},
