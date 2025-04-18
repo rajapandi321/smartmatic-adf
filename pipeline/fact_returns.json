@@ -37,8 +37,8 @@
 								},
 								"sink": {
 									"name": "return_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -48,8 +48,8 @@
 								},
 								"sink": {
 									"name": "sales_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -59,8 +59,8 @@
 								},
 								"sink": {
 									"name": "customer_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -70,8 +70,8 @@
 								},
 								"sink": {
 									"name": "product_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -81,8 +81,8 @@
 								},
 								"sink": {
 									"name": "store_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -92,8 +92,8 @@
 								},
 								"sink": {
 									"name": "date_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -103,8 +103,8 @@
 								},
 								"sink": {
 									"name": "return_quantity",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
