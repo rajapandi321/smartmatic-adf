@@ -37,8 +37,8 @@
 								},
 								"sink": {
 									"name": "store_id",
-									"type": "Int32",
-									"physicalType": "integer"
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							},
 							{
@@ -138,6 +138,94 @@
 									"name": "updated_at",
 									"type": "DateTime",
 									"physicalType": "timestamp without time zone"
+								}
+							},
+							{
+								"source": {
+									"name": "INVENTORY_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "inventory_id",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "PRODUCT_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "product_id",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "DATE_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "date_id",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "STOCK_ON_HAND",
+									"type": "String"
+								},
+								"sink": {
+									"name": "stock_on_hand",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "STOCK_SOLD",
+									"type": "String"
+								},
+								"sink": {
+									"name": "stock_sold",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "STOCK_RECEIVED",
+									"type": "String"
+								},
+								"sink": {
+									"name": "stock_received",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "MINIMUM_STOCK_LEVEL",
+									"type": "String"
+								},
+								"sink": {
+									"name": "minimum_stock_level",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "MAXIMUM_STOCK_LEVEL",
+									"type": "String"
+								},
+								"sink": {
+									"name": "maximum_stock_level",
+									"type": "Decimal",
+									"physicalType": "numeric"
 								}
 							}
 						],
