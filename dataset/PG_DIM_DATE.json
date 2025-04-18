@@ -73,7 +73,7 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "public",
+			"schema": "test",
 			"table": "dim_date"
 		}
 	},
