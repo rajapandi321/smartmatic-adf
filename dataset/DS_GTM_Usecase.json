@@ -1,0 +1,24 @@
+{
+	"name": "DS_GTM_Usecase",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_GTM_Files",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"table_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().table_name",
+				"type": "Expression"
+			}
+		}
+	}
+}
