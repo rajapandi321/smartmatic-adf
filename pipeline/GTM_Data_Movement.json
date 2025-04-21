@@ -37,76 +37,48 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "EmployeeID",
+									"name": "DealID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "EmployeeID",
+									"name": "DealID",
 									"type": "String",
 									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "Department",
+									"name": "LossReason",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Department",
+									"name": "LossReason",
 									"type": "String",
 									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "TrainingsCompleted",
+									"name": "DealStatus",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TrainingsCompleted",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "DealStatus",
+									"type": "String",
+									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "SystemUsageScore",
+									"name": "ReturnedAsLeadWithin3Months",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "SystemUsageScore",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 5
-								}
-							},
-							{
-								"source": {
-									"name": "ProductivityScore",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "ProductivityScore",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 6
-								}
-							},
-							{
-								"source": {
-									"name": "AttritionRisk",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "AttritionRisk",
+									"name": "ReturnedAsLeadWithin3Months",
 									"type": "String",
 									"physicalType": "varchar"
 								}
