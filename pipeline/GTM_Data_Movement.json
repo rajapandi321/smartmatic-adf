@@ -124,7 +124,7 @@
 						"referenceName": "DL_Retail_Analytics",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "Productivity_Training.csv"
+							"file_name": "LostDeals_ReEntry.csv"
 						}
 					}
 				],
@@ -133,7 +133,7 @@
 						"referenceName": "DS_GTM_Usecase",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "Productivity_Training"
+							"table_name": "LostDeals_ReEntry"
 						}
 					}
 				]
