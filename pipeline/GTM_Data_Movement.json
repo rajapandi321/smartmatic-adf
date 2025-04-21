@@ -37,12 +37,12 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "ProjectID",
+									"name": "EmployeeID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "ProjectID",
+									"name": "EmployeeID",
 									"type": "String",
 									"physicalType": "varchar"
 								}
@@ -61,66 +61,54 @@
 							},
 							{
 								"source": {
-									"name": "ProjectManager",
+									"name": "TrainingsCompleted",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "ProjectManager",
+									"name": "TrainingsCompleted",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "SystemUsageScore",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "SystemUsageScore",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 5
+								}
+							},
+							{
+								"source": {
+									"name": "ProductivityScore",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ProductivityScore",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 6
+								}
+							},
+							{
+								"source": {
+									"name": "AttritionRisk",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "AttritionRisk",
 									"type": "String",
 									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "PM_Experience_Years",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "PM_Experience_Years",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "BudgetedCost",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "BudgetedCost",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 12
-								}
-							},
-							{
-								"source": {
-									"name": "ActualCost",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "ActualCost",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 12
-								}
-							},
-							{
-								"source": {
-									"name": "ScopeChanges",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "ScopeChanges",
-									"type": "Int32",
-									"physicalType": "int"
 								}
 							}
 						],
