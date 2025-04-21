@@ -37,86 +37,50 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "LeadID",
+									"name": "CustomerID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "LeadID",
+									"name": "CustomerID",
 									"type": "String",
 									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "LeadSource",
+									"name": "ProductCategory",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "LeadSource",
+									"name": "ProductCategory",
 									"type": "String",
 									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "SalesRep",
+									"name": "ChurnStatus",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "SalesRep",
+									"name": "ChurnStatus",
 									"type": "String",
 									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "Region",
+									"name": "CommonSupportIssue",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Region",
+									"name": "CommonSupportIssue",
 									"type": "String",
 									"physicalType": "varchar"
-								}
-							},
-							{
-								"source": {
-									"name": "LeadCreationDate",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "LeadCreationDate",
-									"type": "DateTime",
-									"physicalType": "datetime"
-								}
-							},
-							{
-								"source": {
-									"name": "InvoiceDate",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "InvoiceDate",
-									"type": "DateTime",
-									"physicalType": "datetime"
-								}
-							},
-							{
-								"source": {
-									"name": "DaysToInvoice",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "DaysToInvoice",
-									"type": "Int32",
-									"physicalType": "int"
 								}
 							}
 						],
@@ -132,7 +96,7 @@
 						"referenceName": "DL_Retail_Analytics",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "AverageTimeLead2Invoice.csv"
+							"file_name": "CustomerChurn_Support.csv"
 						}
 					}
 				],
@@ -141,7 +105,7 @@
 						"referenceName": "DS_GTM_Usecase",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "AverageTimeLead2Voice"
+							"table_name": "CustomerChurn_Support"
 						}
 					}
 				]
