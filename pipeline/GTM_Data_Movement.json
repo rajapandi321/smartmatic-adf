@@ -37,50 +37,90 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "CustomerID",
+									"name": "ProjectID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "CustomerID",
+									"name": "ProjectID",
 									"type": "String",
 									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "ProductCategory",
+									"name": "Department",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "ProductCategory",
+									"name": "Department",
 									"type": "String",
 									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "ChurnStatus",
+									"name": "ProjectManager",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "ChurnStatus",
+									"name": "ProjectManager",
 									"type": "String",
 									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "CommonSupportIssue",
+									"name": "PM_Experience_Years",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "CommonSupportIssue",
+									"name": "PM_Experience_Years",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "BudgetedCost",
 									"type": "String",
-									"physicalType": "varchar"
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "BudgetedCost",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 12
+								}
+							},
+							{
+								"source": {
+									"name": "ActualCost",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ActualCost",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 12
+								}
+							},
+							{
+								"source": {
+									"name": "ScopeChanges",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ScopeChanges",
+									"type": "Int32",
+									"physicalType": "int"
 								}
 							}
 						],
@@ -96,7 +136,7 @@
 						"referenceName": "DL_Retail_Analytics",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "CustomerChurn_Support.csv"
+							"file_name": "ProjectBudget.csv"
 						}
 					}
 				],
@@ -105,7 +145,7 @@
 						"referenceName": "DS_GTM_Usecase",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "CustomerChurn_Support"
+							"table_name": "ProjectBudget_PMExp"
 						}
 					}
 				]
