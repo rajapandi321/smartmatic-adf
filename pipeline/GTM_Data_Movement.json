@@ -136,7 +136,7 @@
 						"referenceName": "DL_Retail_Analytics",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "ProjectBudget.csv"
+							"file_name": "Productivity_Training.csv"
 						}
 					}
 				],
@@ -145,7 +145,7 @@
 						"referenceName": "DS_GTM_Usecase",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "ProjectBudget_PMExp"
+							"table_name": "Productivity_Training"
 						}
 					}
 				]
