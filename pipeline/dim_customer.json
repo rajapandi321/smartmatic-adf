@@ -218,7 +218,7 @@
 			}
 		],
 		"folder": {
-			"name": "Data Migration"
+			"name": "CDC/Data Migration"
 		},
 		"annotations": [],
 		"lastPublishTime": "2025-04-10T07:23:30Z"
