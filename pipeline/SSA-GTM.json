@@ -34,6 +34,272 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Vehicle ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Vehicle_ID",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Driver ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Driver_ID",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Date",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Date",
+									"type": "DateTime",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "Route",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Route",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Harsh Braking Events",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Harsh_Braking_Events",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "Over-Speeding Events",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Over_Speeding_Events",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Road Condition",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Road_Condition",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Camera Trigger",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Camera_Trigger",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Engine Error",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Engine_Error",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Risk Score",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Risk_Score",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Fuel Level",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Fuel_Level",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Battery Voltage",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Battery_Voltage",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Coolant Temp",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Coolant_Temp",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Coolant Level",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Coolant_Level",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Oil Temp",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Oil_Temp",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Oil Pressure",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Oil_Pressure",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Transmission Temp",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Transmission_Temp",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Cybersecurity",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cybersecurity",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Tire Pressure",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tire_Pressure",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Driver Score",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Driver_Score",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "Fuel Efficiency (km/l)",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Fuel_Efficiency_KmPerL",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "Total Risk Events",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Total_Risk_Events",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
