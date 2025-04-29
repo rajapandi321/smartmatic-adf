@@ -107,7 +107,10 @@
 				"outputs": [
 					{
 						"referenceName": "PG_DIM_CATEGORY",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_name": "test_retail"
+						}
 					}
 				]
 			}
