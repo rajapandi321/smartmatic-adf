@@ -48,7 +48,10 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "test",
+			"schema": {
+				"value": "@dataset().schema_name",
+				"type": "Expression"
+			},
 			"table": "dim_category"
 		}
 	},
