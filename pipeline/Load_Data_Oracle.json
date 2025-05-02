@@ -111,7 +111,13 @@
 							"inputs": [
 								{
 									"referenceName": "Load_Oracle_Files",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"file_name": {
+											"value": "@variables('file_name')",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
