@@ -1,0 +1,88 @@
+{
+	"name": "Load_Oracle_Files",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ActivityLog",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"file_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "oracle-files-188"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "PERIOD_ID",
+				"type": "String"
+			},
+			{
+				"name": "PERIOD_NAME",
+				"type": "String"
+			},
+			{
+				"name": "START_DATE",
+				"type": "String"
+			},
+			{
+				"name": "END_DATE",
+				"type": "String"
+			},
+			{
+				"name": "FISCAL_YEAR",
+				"type": "String"
+			},
+			{
+				"name": "FISCAL_QUARTER",
+				"type": "String"
+			},
+			{
+				"name": "FISCAL_MONTH",
+				"type": "String"
+			},
+			{
+				"name": "STATUS",
+				"type": "String"
+			},
+			{
+				"name": "IS_ADJUSTMENT_PERIOD",
+				"type": "String"
+			},
+			{
+				"name": "CLOSED_DATE",
+				"type": "String"
+			},
+			{
+				"name": "CLOSED_BY",
+				"type": "String"
+			},
+			{
+				"name": "CREATED_BY",
+				"type": "String"
+			},
+			{
+				"name": "CREATED_DATE",
+				"type": "String"
+			},
+			{
+				"name": "UPDATED_BY",
+				"type": "String"
+			},
+			{
+				"name": "UPDATED_DATE",
+				"type": "String"
+			}
+		]
+	}
+}
