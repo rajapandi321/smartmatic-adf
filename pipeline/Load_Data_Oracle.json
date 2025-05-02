@@ -117,7 +117,13 @@
 							"outputs": [
 								{
 									"referenceName": "Oracle_Tables",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"table_name": {
+											"value": "@replace(variables('file_name'),'.csv','')",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
