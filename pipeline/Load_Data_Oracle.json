@@ -119,7 +119,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"file_name": {
-											"value": "@variables('file_name').value",
+											"value": "@variables('file_name')",
 											"type": "Expression"
 										}
 									}
@@ -131,7 +131,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"table_name": {
-											"value": "@replace(variables('file_name').value,'.csv','')",
+											"value": "@replace(variables('file_name'),'.csv','')",
 											"type": "Expression"
 										}
 									}
