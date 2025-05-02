@@ -1,0 +1,20 @@
+{
+	"name": "Oracle_Tables",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Oracle_Source",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"table_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "PROD"
+		}
+	}
+}
