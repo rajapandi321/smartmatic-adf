@@ -16,7 +16,7 @@
 		"typeProperties": {
 			"schema": "PROD",
 			"table": {
-				"value": "@replace(dataset().table_name,'.csv','')",
+				"value": "@dataset().table_name",
 				"type": "Expression"
 			}
 		}
