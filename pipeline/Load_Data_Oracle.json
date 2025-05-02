@@ -131,7 +131,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"table_name": {
-											"value": "@replace(toUpper(variables('file_name')), '.csv', '')\n",
+											"value": "@replace(toUpper(variables('file_name')), '.CSV', '')\n",
 											"type": "Expression"
 										}
 									}
