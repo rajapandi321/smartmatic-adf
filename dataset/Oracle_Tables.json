@@ -14,7 +14,11 @@
 		"type": "OracleTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "PROD"
+			"schema": "PROD",
+			"table": {
+				"value": "@replace(dataset().table_name,'.csv','')",
+				"type": "Expression"
+			}
 		}
 	}
 }
