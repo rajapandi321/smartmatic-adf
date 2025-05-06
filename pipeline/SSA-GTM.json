@@ -201,7 +201,7 @@
 						"referenceName": "DL_Retail_Analytics",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "website_pages.csv"
+							"file_name": "websites.csv"
 						}
 					}
 				],
@@ -210,7 +210,7 @@
 						"referenceName": "Oracle_Tables",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "WEBSITE_PAGE"
+							"table_name": "WEBSITES"
 						}
 					}
 				]
