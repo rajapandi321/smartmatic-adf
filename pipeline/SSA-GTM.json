@@ -27,9 +27,8 @@
 						}
 					},
 					"sink": {
-						"type": "AzureSqlSink",
-						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false
+						"type": "OracleSink",
+						"writeBatchSize": 10000
 					},
 					"enableStaging": false,
 					"translator": {
@@ -312,16 +311,16 @@
 						"referenceName": "DL_Retail_Analytics",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "Predictive_Maintenance_Synthetic_Data_With Driver.csv"
+							"file_name": "website_pages.csv"
 						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_Retail_Analytics",
+						"referenceName": "Oracle_Tables",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "VehicleTripRiskReport"
+							"table_name": "website_page"
 						}
 					}
 				]
