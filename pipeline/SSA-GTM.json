@@ -123,12 +123,6 @@
 								}
 							},
 							{
-								"sink": {
-									"name": "PAGE_CONTENT",
-									"type": "String"
-								}
-							},
-							{
 								"source": {
 									"name": "IS_PUBLISHED",
 									"type": "String",
