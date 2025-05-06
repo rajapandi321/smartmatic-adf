@@ -19,6 +19,7 @@
 					"value": "@dataset().file_name",
 					"type": "Expression"
 				},
+				"folderPath": "oracle-sample-files",
 				"fileSystem": "db-files"
 			},
 			"columnDelimiter": ",",
