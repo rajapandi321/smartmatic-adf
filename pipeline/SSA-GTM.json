@@ -36,111 +36,122 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "PAGE_ID",
+									"name": "STORE_INVENTORY_ID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "PAGE_ID",
+									"name": "STORE_INVENTORY_ID",
 									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"name": "WEBSITE_ID",
+									"name": "STORE_ID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "WEBSITE_ID",
+									"name": "STORE_ID",
 									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"name": "PAGE_TITLE",
+									"name": "PRODUCT_ID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "PAGE_TITLE",
+									"name": "PRODUCT_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "VARIANT_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "VARIANT_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "QUANTITY_ON_HAND",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "QUANTITY_ON_HAND",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "QUANTITY_RESERVED",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "QUANTITY_RESERVED",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "QUANTITY_AVAILABLE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "QUANTITY_AVAILABLE",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "SHELF_LOCATION",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "SHELF_LOCATION",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "PAGE_URL",
+									"name": "REORDER_POINT",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "PAGE_URL",
-									"type": "String"
+									"name": "REORDER_POINT",
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"name": "PAGE_TYPE",
+									"name": "REORDER_QUANTITY",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "PAGE_TYPE",
-									"type": "String"
+									"name": "REORDER_QUANTITY",
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"name": "META_TITLE",
+									"name": "LAST_COUNTED_DATE",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "META_TITLE",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "META_DESCRIPTION",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "META_DESCRIPTION",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "META_KEYWORDS",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "META_KEYWORDS",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "IS_PUBLISHED",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "IS_PUBLISHED",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "PUBLISH_DATE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "PUBLISH_DATE",
+									"name": "LAST_COUNTED_DATE",
 									"type": "DateTime"
 								}
 							},
@@ -201,7 +212,7 @@
 						"referenceName": "DL_Retail_Analytics",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "websites.csv"
+							"file_name": "store_inventory.csv"
 						}
 					}
 				],
@@ -210,7 +221,7 @@
 						"referenceName": "Oracle_Tables",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "WEBSITES"
+							"table_name": "STORE_INVENTORY"
 						}
 					}
 				]
