@@ -36,188 +36,100 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "STORE_ID",
+									"name": "PO_ITEM_ID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STORE_ID",
+									"name": "PO_ITEM_ID",
 									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "STORE_NAME",
+									"name": "PO_ID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STORE_NAME",
-									"type": "String"
+									"name": "PO_ID",
+									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "STORE_CODE",
+									"name": "PRODUCT_ID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STORE_CODE",
-									"type": "String"
+									"name": "PRODUCT_ID",
+									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "STORE_TYPE",
+									"name": "VARIANT_ID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STORE_TYPE",
-									"type": "String"
+									"name": "VARIANT_ID",
+									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "ADDRESS_LINE1",
+									"name": "QUANTITY_ORDERED",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "ADDRESS_LINE1",
-									"type": "String"
+									"name": "QUANTITY_ORDERED",
+									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "ADDRESS_LINE2",
+									"name": "UNIT_COST",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "ADDRESS_LINE2",
-									"type": "String"
+									"name": "UNIT_COST",
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"name": "CITY",
+									"name": "EXPECTED_DELIVERY_DATE",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "CITY",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "STATE_PROVINCE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "STATE_PROVINCE",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "POSTAL_CODE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "POSTAL_CODE",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "COUNTRY",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "COUNTRY",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "PHONE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "PHONE",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "EMAIL",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "EMAIL",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "MANAGER_NAME",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "MANAGER_NAME",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "OPENING_DATE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "OPENING_DATE",
+									"name": "EXPECTED_DELIVERY_DATE",
 									"type": "DateTime"
 								}
 							},
 							{
 								"source": {
-									"name": "OPERATING_HOURS",
+									"name": "QUANTITY_RECEIVED",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "OPERATING_HOURS",
-									"type": "String"
+									"name": "QUANTITY_RECEIVED",
+									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "TIME_ZONE",
+									"name": "ITEM_STATUS",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TIME_ZONE",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "IS_ACTIVE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "IS_ACTIVE",
+									"name": "ITEM_STATUS",
 									"type": "String"
 								}
 							},
@@ -245,6 +157,17 @@
 							},
 							{
 								"source": {
+									"name": "UPDATED_BY",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "UPDATED_BY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
 									"name": "UPDATED_DATE",
 									"type": "String",
 									"physicalType": "String"
@@ -252,6 +175,28 @@
 								"sink": {
 									"name": "UPDATED_DATE",
 									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "TOTAL_COST",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TOTAL_COST",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "QUANTITY_PENDING",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "QUANTITY_PENDING",
+									"type": "Double"
 								}
 							}
 						],
@@ -267,7 +212,7 @@
 						"referenceName": "DL_Retail_Analytics",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "order_coupon.csv"
+							"file_name": "purchase_order_item.csv"
 						}
 					}
 				],
@@ -276,7 +221,7 @@
 						"referenceName": "Oracle_Tables",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "ORDER_COUPON"
+							"table_name": "PURCHASE_ORDER_ITEM"
 						}
 					}
 				]
