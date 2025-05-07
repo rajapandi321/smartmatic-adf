@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileSystem": "oracle-files-188"
+				"folderPath": "balance_oracle_files",
+				"fileSystem": "db-files"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
