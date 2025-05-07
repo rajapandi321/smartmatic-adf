@@ -36,56 +36,111 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "CUSTOMER_ID",
+									"name": "STORE_ID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "CUSTOMER_ID",
+									"name": "STORE_ID",
 									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "CUSTOMER_TYPE",
+									"name": "STORE_NAME",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "CUSTOMER_TYPE",
+									"name": "STORE_NAME",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "FIRST_NAME",
+									"name": "STORE_CODE",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "FIRST_NAME",
+									"name": "STORE_CODE",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "LAST_NAME",
+									"name": "STORE_TYPE",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "LAST_NAME",
+									"name": "STORE_TYPE",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "EMAIL",
+									"name": "ADDRESS_LINE1",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "EMAIL",
+									"name": "ADDRESS_LINE1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDRESS_LINE2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ADDRESS_LINE2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CITY",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CITY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "STATE_PROVINCE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "STATE_PROVINCE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "POSTAL_CODE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "POSTAL_CODE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "COUNTRY",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "COUNTRY",
 									"type": "String"
 								}
 							},
@@ -102,100 +157,67 @@
 							},
 							{
 								"source": {
-									"name": "DATE_OF_BIRTH",
+									"name": "EMAIL",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "DATE_OF_BIRTH",
+									"name": "EMAIL",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "MANAGER_NAME",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "MANAGER_NAME",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "OPENING_DATE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "OPENING_DATE",
 									"type": "DateTime"
 								}
 							},
 							{
 								"source": {
-									"name": "GENDER",
+									"name": "OPERATING_HOURS",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "GENDER",
+									"name": "OPERATING_HOURS",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "PASSWORD_HASH",
+									"name": "TIME_ZONE",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "PASSWORD_HASH",
+									"name": "TIME_ZONE",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "REGISTRATION_DATE",
+									"name": "IS_ACTIVE",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "REGISTRATION_DATE",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
-									"name": "LAST_LOGIN_DATE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "LAST_LOGIN_DATE",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
-									"name": "ACCOUNT_STATUS",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "ACCOUNT_STATUS",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "LOYALTY_POINTS",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "LOYALTY_POINTS",
-									"type": "Double"
-								}
-							},
-							{
-								"source": {
-									"name": "PREFERENCES_JSON",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "PREFERENCES_JSON",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "IS_SUBSCRIBED_TO_NEWSLETTER",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "IS_SUBSCRIBED_TO_NEWSLETTER",
+									"name": "IS_ACTIVE",
 									"type": "String"
 								}
 							},
@@ -219,17 +241,6 @@
 								"sink": {
 									"name": "CREATED_DATE",
 									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
-									"name": "UPDATED_BY",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "UPDATED_BY",
-									"type": "String"
 								}
 							},
 							{
@@ -256,7 +267,7 @@
 						"referenceName": "DL_Retail_Analytics",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "customer.csv"
+							"file_name": "order_coupon.csv"
 						}
 					}
 				],
@@ -265,7 +276,7 @@
 						"referenceName": "Oracle_Tables",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "CUSTOMER"
+							"table_name": "ORDER_COUPON"
 						}
 					}
 				]
