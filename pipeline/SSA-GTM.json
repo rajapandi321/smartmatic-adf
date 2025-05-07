@@ -36,123 +36,167 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "STORE_INVENTORY_ID",
+									"name": "CUSTOMER_ID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STORE_INVENTORY_ID",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
-									"name": "STORE_ID",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "STORE_ID",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
-									"name": "PRODUCT_ID",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "PRODUCT_ID",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
-									"name": "VARIANT_ID",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "VARIANT_ID",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
-									"name": "QUANTITY_ON_HAND",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "QUANTITY_ON_HAND",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
-									"name": "QUANTITY_RESERVED",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "QUANTITY_RESERVED",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
-									"name": "QUANTITY_AVAILABLE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "QUANTITY_AVAILABLE",
+									"name": "CUSTOMER_ID",
 									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "SHELF_LOCATION",
+									"name": "CUSTOMER_TYPE",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "SHELF_LOCATION",
+									"name": "CUSTOMER_TYPE",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "REORDER_POINT",
+									"name": "FIRST_NAME",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "REORDER_POINT",
-									"type": "Decimal"
+									"name": "FIRST_NAME",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "REORDER_QUANTITY",
+									"name": "LAST_NAME",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "REORDER_QUANTITY",
-									"type": "Decimal"
+									"name": "LAST_NAME",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "LAST_COUNTED_DATE",
+									"name": "EMAIL",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "LAST_COUNTED_DATE",
+									"name": "EMAIL",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PHONE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PHONE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DATE_OF_BIRTH",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DATE_OF_BIRTH",
 									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "GENDER",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "GENDER",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PASSWORD_HASH",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PASSWORD_HASH",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "REGISTRATION_DATE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "REGISTRATION_DATE",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LAST_LOGIN_DATE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "LAST_LOGIN_DATE",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "ACCOUNT_STATUS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ACCOUNT_STATUS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LOYALTY_POINTS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "LOYALTY_POINTS",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "PREFERENCES_JSON",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PREFERENCES_JSON",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IS_SUBSCRIBED_TO_NEWSLETTER",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IS_SUBSCRIBED_TO_NEWSLETTER",
+									"type": "String"
 								}
 							},
 							{
@@ -212,7 +256,7 @@
 						"referenceName": "DL_Retail_Analytics",
 						"type": "DatasetReference",
 						"parameters": {
-							"file_name": "store_inventory.csv"
+							"file_name": "customer.csv"
 						}
 					}
 				],
@@ -221,7 +265,7 @@
 						"referenceName": "Oracle_Tables",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "STORE_INVENTORY"
+							"table_name": "CUSTOMER"
 						}
 					}
 				]
