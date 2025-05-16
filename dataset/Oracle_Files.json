@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "balance_oracle_files",
+				"folderPath": "pending-oracle-files",
 				"fileSystem": "db-files"
 			},
 			"columnDelimiter": ",",
@@ -18,67 +18,6 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": [
-			{
-				"name": "PERIOD_ID",
-				"type": "String"
-			},
-			{
-				"name": "PERIOD_NAME",
-				"type": "String"
-			},
-			{
-				"name": "START_DATE",
-				"type": "String"
-			},
-			{
-				"name": "END_DATE",
-				"type": "String"
-			},
-			{
-				"name": "FISCAL_YEAR",
-				"type": "String"
-			},
-			{
-				"name": "FISCAL_QUARTER",
-				"type": "String"
-			},
-			{
-				"name": "FISCAL_MONTH",
-				"type": "String"
-			},
-			{
-				"name": "STATUS",
-				"type": "String"
-			},
-			{
-				"name": "IS_ADJUSTMENT_PERIOD",
-				"type": "String"
-			},
-			{
-				"name": "CLOSED_DATE",
-				"type": "String"
-			},
-			{
-				"name": "CLOSED_BY",
-				"type": "String"
-			},
-			{
-				"name": "CREATED_BY",
-				"type": "String"
-			},
-			{
-				"name": "CREATED_DATE",
-				"type": "String"
-			},
-			{
-				"name": "UPDATED_BY",
-				"type": "String"
-			},
-			{
-				"name": "UPDATED_DATE",
-				"type": "String"
-			}
-		]
+		"schema": []
 	}
 }
