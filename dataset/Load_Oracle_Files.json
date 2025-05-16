@@ -19,7 +19,8 @@
 					"value": "@dataset().file_name",
 					"type": "Expression"
 				},
-				"fileSystem": "oracle-files-188"
+				"folderPath": "balance_oracle_files",
+				"fileSystem": "db-files"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
