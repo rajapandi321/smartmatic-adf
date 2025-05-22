@@ -14,7 +14,7 @@
 		"type": "OracleTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "PROD",
+			"schema": "GTM_DB",
 			"table": {
 				"value": "@dataset().table_name",
 				"type": "Expression"
