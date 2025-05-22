@@ -20,23 +20,111 @@
 		},
 		"schema": [
 			{
-				"name": "BRAND_ID",
+				"name": "CALL_PROCESS_TYPE",
 				"type": "String"
 			},
 			{
-				"name": "BRAND_NAME",
+				"name": "DATE_RECEIVED",
 				"type": "String"
 			},
 			{
-				"name": "BRAND_DESCRIPTION",
+				"name": "DATE_PROCESSED",
 				"type": "String"
 			},
 			{
-				"name": "CREATED_AT",
+				"name": "DATE_PROCESSED_HOUR",
 				"type": "String"
 			},
 			{
-				"name": "UPDATED_AT",
+				"name": "ORIG_SWITCH_ID",
+				"type": "String"
+			},
+			{
+				"name": "TERM_SWITCH_ID",
+				"type": "String"
+			},
+			{
+				"name": "BILLING_FILE_ID",
+				"type": "String"
+			},
+			{
+				"name": "PROCESSED_FILE_NAME",
+				"type": "String"
+			},
+			{
+				"name": "TOTAL_PROCESSED_CNT",
+				"type": "String"
+			},
+			{
+				"name": "BAD_TRUNK_GROUP_CNT",
+				"type": "String"
+			},
+			{
+				"name": "BAD_SWITCH_ID_CNT",
+				"type": "String"
+			},
+			{
+				"name": "NO_NPANXX_RTDC_RECORDS",
+				"type": "String"
+			},
+			{
+				"name": "GOOD_CNT",
+				"type": "String"
+			},
+			{
+				"name": "IMT_CNT",
+				"type": "String"
+			},
+			{
+				"name": "INTERNATIONAL_CNT",
+				"type": "String"
+			},
+			{
+				"name": "CREATED_USER",
+				"type": "String"
+			},
+			{
+				"name": "CREATED_DATE",
+				"type": "String"
+			},
+			{
+				"name": "CREATED_DATE_HOUR",
+				"type": "String"
+			},
+			{
+				"name": "DAL_CNT",
+				"type": "String"
+			},
+			{
+				"name": "ORIG_IMT_LA_CNT",
+				"type": "String"
+			},
+			{
+				"name": "TOTAL_PROCESSED_DUR",
+				"type": "String"
+			},
+			{
+				"name": "IMT_DUR",
+				"type": "String"
+			},
+			{
+				"name": "INTERNATIONAL_DUR",
+				"type": "String"
+			},
+			{
+				"name": "GOOD_DUR",
+				"type": "String"
+			},
+			{
+				"name": "TOTAL_NONPANXXRTDC_DUR",
+				"type": "String"
+			},
+			{
+				"name": "DAL_DUR",
+				"type": "String"
+			},
+			{
+				"name": "ORIG_IMT_LA_DUR",
 				"type": "String"
 			}
 		]

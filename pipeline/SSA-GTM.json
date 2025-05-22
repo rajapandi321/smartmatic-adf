@@ -58,13 +58,24 @@
 							},
 							{
 								"source": {
+									"name": "DATE_PROCESSED",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DATE_PROCESSED",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
 									"name": "DATE_PROCESSED_HOUR",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
 									"name": "DATE_PROCESSED_HOUR",
-									"type": "String"
+									"type": "Decimal"
 								}
 							},
 							{
@@ -201,13 +212,24 @@
 							},
 							{
 								"source": {
+									"name": "CREATED_DATE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CREATED_DATE",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
 									"name": "CREATED_DATE_HOUR",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
 									"name": "CREATED_DATE_HOUR",
-									"type": "String"
+									"type": "Decimal"
 								}
 							},
 							{
@@ -307,28 +329,6 @@
 								"sink": {
 									"name": "ORIG_IMT_LA_DUR",
 									"type": "Double"
-								}
-							},
-							{
-								"source": {
-									"name": "DATE_PROCESSED",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "DATE_PROCESSED",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "CREATED_DATE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "CREATED_DATE",
-									"type": "String"
 								}
 							}
 						],
