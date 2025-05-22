@@ -265,10 +265,7 @@
 				"inputs": [
 					{
 						"referenceName": "DL_Retail_Analytics",
-						"type": "DatasetReference",
-						"parameters": {
-							"file_name": "stores.csv"
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
@@ -276,7 +273,7 @@
 						"referenceName": "Oracle_Tables",
 						"type": "DatasetReference",
 						"parameters": {
-							"table_name": "STORES"
+							"table_name": "CDR_STATS_2501"
 						}
 					}
 				]
