@@ -36,199 +36,287 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "STORE_ID",
+									"name": "CALL_PROCESS_TYPE",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STORE_ID",
+									"name": "CALL_PROCESS_TYPE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DATE_RECEIVED",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DATE_RECEIVED",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "DATE_PROCESSED_HOUR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DATE_PROCESSED_HOUR",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ORIG_SWITCH_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ORIG_SWITCH_ID",
 									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "STORE_NAME",
+									"name": "TERM_SWITCH_ID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STORE_NAME",
+									"name": "TERM_SWITCH_ID",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "BILLING_FILE_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "BILLING_FILE_ID",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "PROCESSED_FILE_NAME",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PROCESSED_FILE_NAME",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "STORE_CODE",
+									"name": "TOTAL_PROCESSED_CNT",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STORE_CODE",
+									"name": "TOTAL_PROCESSED_CNT",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "BAD_TRUNK_GROUP_CNT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "BAD_TRUNK_GROUP_CNT",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "BAD_SWITCH_ID_CNT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "BAD_SWITCH_ID_CNT",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "NO_NPANXX_RTDC_RECORDS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "NO_NPANXX_RTDC_RECORDS",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "GOOD_CNT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "GOOD_CNT",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "IMT_CNT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IMT_CNT",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "INTERNATIONAL_CNT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "INTERNATIONAL_CNT",
+									"type": "Double"
+								}
+							},
+							{
+								"source": {
+									"name": "CREATED_USER",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CREATED_USER",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "STORE_TYPE",
+									"name": "CREATED_DATE_HOUR",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STORE_TYPE",
+									"name": "CREATED_DATE_HOUR",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "ADDRESS_LINE1",
+									"name": "DAL_CNT",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "ADDRESS_LINE1",
-									"type": "String"
+									"name": "DAL_CNT",
+									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "ADDRESS_LINE2",
+									"name": "ORIG_IMT_LA_CNT",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "ADDRESS_LINE2",
-									"type": "String"
+									"name": "ORIG_IMT_LA_CNT",
+									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "CITY",
+									"name": "TOTAL_PROCESSED_DUR",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "CITY",
-									"type": "String"
+									"name": "TOTAL_PROCESSED_DUR",
+									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "STATE_PROVINCE",
+									"name": "IMT_DUR",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STATE_PROVINCE",
-									"type": "String"
+									"name": "IMT_DUR",
+									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "POSTAL_CODE",
+									"name": "INTERNATIONAL_DUR",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "POSTAL_CODE",
-									"type": "String"
+									"name": "INTERNATIONAL_DUR",
+									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "COUNTRY",
+									"name": "GOOD_DUR",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "COUNTRY",
-									"type": "String"
+									"name": "GOOD_DUR",
+									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "PHONE",
+									"name": "TOTAL_NONPANXXRTDC_DUR",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "PHONE",
-									"type": "String"
+									"name": "TOTAL_NONPANXXRTDC_DUR",
+									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "EMAIL",
+									"name": "DAL_DUR",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "EMAIL",
-									"type": "String"
+									"name": "DAL_DUR",
+									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "MANAGER_NAME",
+									"name": "ORIG_IMT_LA_DUR",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "MANAGER_NAME",
-									"type": "String"
+									"name": "ORIG_IMT_LA_DUR",
+									"type": "Double"
 								}
 							},
 							{
 								"source": {
-									"name": "OPENING_DATE",
+									"name": "DATE_PROCESSED",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "OPENING_DATE",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
-									"name": "OPERATING_HOURS",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "OPERATING_HOURS",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "TIME_ZONE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "TIME_ZONE",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "IS_ACTIVE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "IS_ACTIVE",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "CREATED_BY",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "CREATED_BY",
+									"name": "DATE_PROCESSED",
 									"type": "String"
 								}
 							},
@@ -240,18 +328,7 @@
 								},
 								"sink": {
 									"name": "CREATED_DATE",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
-									"name": "UPDATED_DATE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "UPDATED_DATE",
-									"type": "DateTime"
+									"type": "String"
 								}
 							}
 						],
